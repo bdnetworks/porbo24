@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .thin-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.75) transparent;
+  }
+
+  .thin-scrollbar::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .thin-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .thin-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.75);
+    border-radius: 9999px;
+  }
+
+  .thin-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.9);
+  }
+}
+
+button{
+  cursor: pointer;
+}
+
+
+/* breaking News page css */
+.headline-marquee {
+  display: inline-block;
+  min-width: 100%;
+  white-space: nowrap;
+  animation: marqueeMove 25s linear infinite;
+}
+
+@keyframes marqueeMove {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+
+
+/* video page */
+
+.videopage .scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.videopage .scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

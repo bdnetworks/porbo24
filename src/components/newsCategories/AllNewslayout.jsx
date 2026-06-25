@@ -1,0 +1,376 @@
+import React from "react";
+import { newsData } from "../../data/newsData";
+
+/* =========================
+   helper: title truncate
+========================= */
+const TITLE_WORD_LIMIT = 7;
+
+const getTruncatedTitle = (title, wordLimit = TITLE_WORD_LIMIT) => {
+  const words = title.trim().split(" ");
+  const isLong = words.length > wordLimit;
+
+  return {
+    shortTitle: isLong ? words.slice(0, wordLimit).join(" ") : title,
+    isLong,
+  };
+};
+
+/* =========================
+   reusable title block
+========================= */
+const NewsTitle = ({
+  title,
+  className = "",
+  wordLimit = TITLE_WORD_LIMIT,
+  showSeeMore = true,
+}) => {
+  const { shortTitle, isLong } = getTruncatedTitle(title, wordLimit);
+
+  return (
+    <div>
+      <h3 className={className}>
+        {shortTitle}
+        {isLong && "..."}
+      </h3>
+
+      {showSeeMore && isLong && (
+        <button
+          type="button"
+          className="mt-1 border-none bg-transparent p-0 text-[13px] font-medium text-red-600"
+        >
+          See more
+        </button>
+      )}
+    </div>
+  );
+};
+
+/* =========================
+   time text
+========================= */
+const NewsTime = ({ text = "১ ঘণ্টা আগে" }) => (
+  <p className="mt-3 text-[14px] text-[#7b7b7b]">{text}</p>
+);
+
+/* =========================
+   small horizontal news
+========================= */
+const SmallSideNews = ({ news, reverse = false }) => {
+  return (
+    <article className="flex items-start gap-3 border-b border-black/10 pb-5">
+      {!reverse && (
+        <div className="min-w-0 flex-1">
+          <NewsTitle
+            title={news.title}
+            wordLimit={6}
+            className="text-[17px] font-bold leading-[1.45] text-[#1f1f1f]"
+          />
+          {news.description && (
+            <p className="mt-2 text-[15px] leading-7 text-[#6b7280] line-clamp-3">
+              {news.description}
+            </p>
+          )}
+          <NewsTime />
+        </div>
+      )}
+
+      {news.img && (
+        <div className="h-[82px] w-[110px] shrink-0 overflow-hidden">
+          <img
+            src={news.img}
+            alt={news.title}
+            className="h-full w-full object-cover"
+          />
+        </div>
+      )}
+
+      {reverse && (
+        <div className="min-w-0 flex-1">
+          <NewsTitle
+            title={news.title}
+            wordLimit={6}
+            className="text-[17px] font-bold leading-[1.45] text-[#1f1f1f]"
+          />
+          {news.description && (
+            <p className="mt-2 text-[15px] leading-7 text-[#6b7280] line-clamp-3">
+              {news.description}
+            </p>
+          )}
+          <NewsTime />
+        </div>
+      )}
+    </article>
+  );
+};
+
+/* =========================
+   opinion card (right side)
+========================= */
+const OpinionCard = ({ news }) => {
+  return (
+    <article className="border-b border-black/10 pb-5">
+      <div className="flex items-start gap-4">
+        <div className="min-w-0 flex-1">
+          <p className="mb-2 text-[15px] font-bold text-red-600">মতামত</p>
+
+          <NewsTitle
+            title={news.title}
+            wordLimit={7}
+            className="text-[19px] font-bold leading-[1.45] text-[#1f1f1f]"
+          />
+
+          {news.description && (
+            <p className="mt-2 text-[15px] leading-7 text-[#6b7280] line-clamp-4">
+              {news.description}
+            </p>
+          )}
+
+          <NewsTime text="৪৮ মিনিট আগে" />
+        </div>
+
+        {news.img && (
+          <div className="h-[78px] w-[110px] shrink-0 overflow-hidden">
+            <img
+              src={news.img}
+              alt={news.title}
+              className="h-full w-full object-cover"
+            />
+          </div>
+        )}
+      </div>
+    </article>
+  );
+};
+
+/* =========================
+   top feature card
+========================= */
+const TopFeatureCard = ({ news, imageLeft = false }) => {
+  return (
+    <article className="grid grid-cols-1 gap-4 border-b border-black/10 pb-5 lg:grid-cols-[1.1fr_1fr]">
+      {imageLeft && news.img && (
+        <div className="overflow-hidden">
+          <img
+            src={news.img}
+            alt={news.title}
+            className="h-[230px] w-full object-cover"
+          />
+        </div>
+      )}
+
+      <div>
+        <NewsTitle
+          title={news.title}
+          wordLimit={9}
+          className="text-[20px] md:text-[22px] font-bold leading-[1.45] text-[#1f1f1f]"
+        />
+
+        {news.description && (
+          <p className="mt-3 text-[15px] leading-7 text-[#6b7280]">
+            {news.description}
+          </p>
+        )}
+
+        <NewsTime text="১৭ মিনিট আগে" />
+      </div>
+
+      {!imageLeft && news.img && (
+        <div className="overflow-hidden">
+          <img
+            src={news.img}
+            alt={news.title}
+            className="h-[230px] w-full object-cover"
+          />
+        </div>
+      )}
+    </article>
+  );
+};
+
+/* =========================
+   medium card
+========================= */
+const MediumCard = ({ news }) => {
+  return (
+    <article className="border-b border-black/10 pb-4">
+      <div className="flex items-start gap-4">
+        <div className="min-w-0 flex-1">
+          <NewsTitle
+            title={news.title}
+            wordLimit={7}
+            className="text-[18px] font-bold leading-[1.45] text-[#1f1f1f]"
+          />
+
+          {news.description && (
+            <p className="mt-2 text-[15px] leading-7 text-[#6b7280] line-clamp-4">
+              {news.description}
+            </p>
+          )}
+
+          <NewsTime text="১ ঘণ্টা আগে" />
+        </div>
+
+        {news.img && (
+          <div className="h-[85px] w-[110px] shrink-0 overflow-hidden">
+            <img
+              src={news.img}
+              alt={news.title}
+              className="h-full w-full object-cover"
+            />
+          </div>
+        )}
+      </div>
+    </article>
+  );
+};
+
+/* =========================
+   image top card
+========================= */
+const ImageTopCard = ({ news }) => {
+  return (
+    <article className="border-b border-black/10 pb-4 lg:border-b-0 lg:border-r lg:border-black/10 lg:pr-4">
+      {news.img && (
+        <div className="mb-3 overflow-hidden">
+          <img
+            src={news.img}
+            alt={news.title}
+            className="h-[155px] w-full object-cover"
+          />
+        </div>
+      )}
+
+      <NewsTitle
+        title={news.title}
+        wordLimit={7}
+        className="text-[18px] font-bold leading-[1.45] text-[#1f1f1f]"
+      />
+
+      <NewsTime text="২ ঘণ্টা আগে" />
+    </article>
+  );
+};
+
+/* =========================
+   text only card
+========================= */
+const TextOnlyCard = ({ news }) => {
+  return (
+    <article className="border-b border-black/10 pb-5">
+      <NewsTitle
+        title={news.title}
+        wordLimit={8}
+        className="text-[18px] font-bold leading-[1.5] text-[#1f1f1f]"
+      />
+
+      {news.description && (
+        <p className="mt-2 text-[15px] leading-7 text-[#6b7280] line-clamp-4">
+          {news.description}
+        </p>
+      )}
+
+      <NewsTime text="৫৫ মিনিট আগে" />
+    </article>
+  );
+};
+
+const AllNewsLayout = () => {
+  // সব category-এর news একসাথে নিচ্ছি
+  const allNews = newsData.slice(0, 18);
+
+  if (allNews.length < 14) return null;
+
+  // ===== Left column =====
+  const leftTop = allNews[0];
+  const leftBottom1 = allNews[1];
+  const leftBottom2 = allNews[2];
+  const leftBottom3 = allNews[3];
+  const leftBottom4 = allNews[4];
+
+  // ===== Middle column =====
+  const middleTopLeft = allNews[5];
+  const middleTopRight = allNews[6];
+  const middleRow2Left = allNews[7];
+  const middleRow2Right = allNews[8];
+  const middleImage1 = allNews[9];
+  const middleImage2 = allNews[10];
+  const middleImage3 = allNews[11];
+  const middleText1 = allNews[12];
+  const middleText2 = allNews[13];
+  const middleText3 = allNews[14];
+
+  // ===== Right column =====
+  const right1 = allNews[15];
+  const right2 = allNews[16];
+  const right3 = allNews[17];
+
+  return (
+    <section className="">
+      <div className="mx-auto max-w-[1400px] px-4 py-6 lg:px-6">
+        <div className="grid grid-cols-1 gap-8 xl:grid-cols-[300px_1fr_320px]">
+          {/* =========================================================
+              LEFT COLUMN
+          ========================================================= */}
+          <div className="space-y-5 xl:border-r xl:border-black/15 xl:pr-6">
+            <SmallSideNews news={leftTop} />
+            
+            {/* ad / promo block */}
+            <div className="overflow-hidden bg-gradient-to-r from-[#d8fff3] via-[#d7f3ff] to-[#e7ddff] px-5 py-6 text-center">
+              <p className="text-[18px] font-medium text-[#4b5563]">
+                ডেটা লোড করা বাকি
+              </p>
+            </div>
+
+            <SmallSideNews news={leftBottom1} />
+            <SmallSideNews news={leftBottom2} />
+            <SmallSideNews news={leftBottom3} />
+            <SmallSideNews news={leftBottom4} />
+          </div>
+
+          {/* =========================================================
+              MIDDLE COLUMN
+          ========================================================= */}
+          <div className="space-y-5 xl:border-r xl:border-black/15 xl:pr-6">
+            {/* top two feature */}
+            <div className="grid grid-cols-1 gap-5 ">
+              <TopFeatureCard news={middleTopLeft} imageLeft />
+             
+            </div>
+
+            {/* second row */}
+            <div className="grid grid-cols-1 gap-5 border-t border-black/10 pt-5 lg:grid-cols-2">
+              <MediumCard news={middleRow2Left} />
+              <MediumCard news={middleRow2Right} />
+            </div>
+
+            {/* image cards row */}
+            <div className="grid grid-cols-1 gap-5 border-t border-black/10 pt-5 md:grid-cols-2 lg:grid-cols-3">
+              <ImageTopCard news={middleImage1} />
+              <ImageTopCard news={middleImage2} />
+              <ImageTopCard news={middleImage3} />
+            </div>
+
+            {/* text cards row */}
+            <div className="grid grid-cols-1 gap-5 border-t border-black/10 pt-5 md:grid-cols-2 lg:grid-cols-3">
+              <TextOnlyCard news={middleText1} />
+              <TextOnlyCard news={middleText2} />
+              <TextOnlyCard news={middleText3} />
+            </div>
+          </div>
+
+          {/* =========================================================
+              RIGHT COLUMN
+          ========================================================= */}
+          <div className="space-y-5">
+            <OpinionCard news={right1} />
+            <OpinionCard news={right2} />
+            <OpinionCard news={right3} />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default AllNewsLayout;
