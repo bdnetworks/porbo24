@@ -166,16 +166,18 @@ const Sports = () => {
         .tab-btn:hover { color: #d0021b !important; }
       `}</style>
 
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: '240px 1fr 200px',
-          borderTop: '2px solid #d0021b',
-          maxWidth: 1230,
-          margin: '0 auto',
-          marginTop:'1.5rem' ,
-        
-        }}
+     <div
+        className="
+          grid
+          grid-cols-1
+          md:grid-cols-[240px_1fr]
+          xl:grid-cols-[240px_1fr_200px]
+          border-t-2 border-[#d0021b]
+          max-w-[1230px]
+          mx-auto
+          mt-6
+          gap-6
+        "
       >
         {/* ── LEFT COLUMN ── */}
         <div style={{ borderRight: '1px solid #e0e0e0', padding: '12px 0' }}>

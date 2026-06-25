@@ -43,9 +43,9 @@ const NotableCategories = () => {
 
   return (
     <section className="border-b border-black/10  py-4 mt-10">
-      <div className="mx-auto flex items-center gap-4 px-4 lg:px-0">
+      <div className="mx-auto flex items-center gap-4 px-2 lg:px-0">
         {/* Left title */}
-        <h2 className="shrink-0 text-[20px] font-bold text-[#111827]">
+        <h2 className="shrink-0 text-[20px] max-sm:text-[1rem] font-bold text-[#111827]">
           আলোচিত বিষয়:
         </h2>
 
@@ -58,7 +58,7 @@ const NotableCategories = () => {
             {notableTopics.map((topic, index) => (
               <button
                 key={index}
-                className="shrink-0 rounded-sm border border-black/10 bg-[#f5f5f5] px-4 py-2 text-[15px] font-medium text-[#222] transition hover:bg-[#ececec]"
+                className="shrink-0 rounded-sm border border-black/10 bg-[#f5f5f5] px-4 max-sm:px-2 py-2 text-[15px] font-medium text-[#222] transition hover:bg-[#ececec]"
               >
                 {topic}
               </button>
@@ -67,17 +67,17 @@ const NotableCategories = () => {
         </div>
 
         {/* Right arrows */}
-        <div className="flex shrink-0 items-center gap-2">
+        <div className="flex shrink-0 items-center max-sm:gap-[0.5px]">
           <button
             onClick={scrollLeft}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-black/10 bg-white text-[#111] transition hover:bg-gray-100"
+            className="flex h-9 w-9 max-sm:w-6 items-center justify-center rounded-full border border-black/10 bg-white text-[#111] transition hover:bg-gray-100"
           >
             <FaChevronLeft size={14} />
           </button>
 
           <button
             onClick={scrollRight}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-black/10 bg-white text-[#111] transition hover:bg-gray-100"
+            className="flex h-9 w-9 max-sm:w-6 items-center justify-center rounded-full border border-black/10 bg-white text-[#111] transition hover:bg-gray-100"
           >
             <FaChevronRight size={14} />
           </button>
