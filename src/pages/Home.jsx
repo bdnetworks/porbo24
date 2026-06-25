@@ -8,6 +8,7 @@ import InternationalNews from '../components/newsCategories/InternationalNews'
 import EntertainmentNews from '../components/newsCategories/EntertainmentNews'
 import VideoNews from '../components/newsCategories/VideoNews'
 import OpinionNews from '../components/newsCategories/OpinionNews'
+import ForYou from '../components/newsCategories/ForYou'
 
 const Home = () => {
   return (
@@ -21,6 +22,7 @@ const Home = () => {
      <EntertainmentNews/>
      <VideoNews/>
      <OpinionNews/>
+     <ForYou/>
     </div>
   )
 }
