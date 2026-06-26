@@ -69,7 +69,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* ========== 2nd Line: Logo + Search + Hamburger (Hide on Scroll/Sticky on md+) ========== */}
+        {/* ========== 2nd Line: Logo + Search + Hamburger ========== */}
         <div
           className={`border-b border-gray-200 bg-white transition-all duration-300 overflow-hidden ${
             isSticky
@@ -81,20 +81,40 @@ export default function Navbar() {
             <div className="shrink-0">
              <img src="./Logo.png" alt="porbo25-logo"  className="w-[4rem]"/>
             </div>
+             {/* ads section only visible tab and big device */}
+            <div className="hidden md:block">
+              <img src='./adsNav.png' alt="If ad's need call: 9617-888-807" className="w-[500px] max-sm:w-[350px]" />
+            </div>
 
-            {/* ADS Section (Only visible when not sticky) */}
-            <img src='./adsNav.png' alt="If ad's need call: 9617-888-807" className="w-[500px]" />
-            
+            <div className="flex flex-1 items-center justify-end gap-2 md:hidden">
+              <div className="flex h-10 w-full max-w-[220px] items-center overflow-hidden rounded border border-gray-300 bg-white">
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  className="h-full w-full px-3 text-sm text-gray-700 outline-none"
+                />
+                <button className="flex h-full w-10 items-center justify-center border-l border-gray-300 text-gray-700 hover:bg-gray-100 transition-colors">
+                  <FaSearch className="text-[12px]" />
+                </button>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsMenuOpen(true)}
+                className="flex h-10 w-10 items-center justify-center rounded bg-[#07186b] text-white hover:bg-[#0a1f5e] transition-colors"
+              >
+                <FaBars />
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* ========== 3rd Line: Category Menu (desktop only, hide on small screens) ========== */}
+        {/* ========== 3rd Line: Category Menu (large screens only) ========== */}
         <div className="hidden md:block bg-[#07186b] text-white">
           <div className="mx-auto max-w-[1280px] px-4">
             <div className="flex items-center gap-3">
               {/* Search + Hamburger (Only visible when sticky) */}
              
-                <div className="hidden items-center gap-2 md:flex shrink-0">
+                <div className="hidden items-center gap-2 sm:flex shrink-0">
                   <button
                     type="button"
                     onClick={() => setIsMenuOpen(true)}

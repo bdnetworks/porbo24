@@ -270,6 +270,25 @@ const TextOnlyCard = ({ news }) => {
   );
 };
 
+const TitleOnlyCard = ({ news }) => {
+  return (
+    <article className="border-b border-black/10 pb-4">
+      <NewsTitle
+        title={news.title}
+       wordLimit={8}
+        className="text-[19px] font-bold leading-[1.4] text-[#1f1f1f] line-clamp-4"
+      />
+
+       {news.description && (
+        <p className="mt-2 text-[15px] leading-7 text-[#6b7280] line-clamp-4">
+          {news.description}
+        </p>
+      )}
+
+    </article>
+  );
+};
+
 const AllNewsLayout = () => {
   // সব category-এর news একসাথে নিচ্ছি
   const allNews = newsData.slice(0, 18);
@@ -299,6 +318,7 @@ const AllNewsLayout = () => {
   const right1 = allNews[15];
   const right2 = allNews[16];
   const right3 = allNews[17];
+  const rightTitles = [right1, right2, right3];
 
   return (
     <section className="">
@@ -358,12 +378,25 @@ const AllNewsLayout = () => {
               RIGHT COLUMN
           ========================================================= */}
           <div className="space-y-5">
+    
             <div className="max-w-[320px] w-[100%] border-2 h-[300px] border-gray-300 bg-[#07186b] text-center text-white">
               ADS LOAD NEED
               </div>
+
+            
+
             <OpinionCard news={right1} />
             <OpinionCard news={right2} />
             <OpinionCard news={right3} />
+
+            <div className="">
+              
+              <div className="space-y-4 text-[19px] font-bold hover:text-sky-100 ">
+                {rightTitles.map((news) => (
+                  <TitleOnlyCard key={news.id} news={news} />
+                ))}
+              </div>
+            </div>
            
           </div>
         </div>

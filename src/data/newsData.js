@@ -125,7 +125,7 @@ export const newsData = [
   },
   {
     id: 18,
-    title: "যুক্তরাষ্ট্রে নতুন অভিবাসন আইন পাসের ঘোষণা",
+    title: "যুক্তরাষ্ট্রে নতুন অভিবাসন আইন পাসের ঘোষণা ",
     description: "দক্ষ পেশাদারদের জন্য গ্রিন কার্ডের কোটা বাড়িয়ে মার্কিন সিনেটে নতুন একটি ঐতিহাসিক অভিবাসন বিল পাস করা হয়েছে।",
     img: "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=500&q=80",
     category: "international"

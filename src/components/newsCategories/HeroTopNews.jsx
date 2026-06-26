@@ -54,7 +54,7 @@ const HeroTopNews = () => {
             <img
               src={leadNews.img}
               alt={leadNews.title}
-              className="h-[300px] w-full object-cover"
+              className="h-[250px] w-full object-cover"
             />
           </article>
 
