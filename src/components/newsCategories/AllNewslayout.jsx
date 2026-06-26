@@ -311,8 +311,8 @@ const AllNewsLayout = () => {
             <SmallSideNews news={leftTop} />
             
             {/* ad / promo block */}
-            <div className="overflow-hidden bg-gradient-to-r from-[#d8fff3] via-[#d7f3ff] to-[#e7ddff] px-5 py-6 text-center">
-              <p className="text-[18px] font-medium text-[#4b5563]">
+            <div className="overflow-hidden bg-[#07186b] px-5 py-6 text-center">
+              <p className="text-[18px] font-medium text-white">
                 ADS লোড করা বাকি
               </p>
             </div>
@@ -358,9 +358,13 @@ const AllNewsLayout = () => {
               RIGHT COLUMN
           ========================================================= */}
           <div className="space-y-5">
+            <div className="max-w-[320px] w-[100%] border-2 h-[300px] border-gray-300 bg-[#07186b] text-center text-white">
+              ADS LOAD NEED
+              </div>
             <OpinionCard news={right1} />
             <OpinionCard news={right2} />
             <OpinionCard news={right3} />
+           
           </div>
         </div>
       </div>
