@@ -120,7 +120,7 @@ export const newsData = [
     id: 17,
     title: "কৃত্রিম বুদ্ধিমত্তা নিয়ন্ত্রণে নতুন আন্তর্জাতিক চুক্তি",
     description: "এআই (AI) প্রযুক্তির অপব্যবহার রোধ এবং সাইবার নিরাপত্তা নিশ্চিত করতে বিশ্বের শীর্ষ ২০টি দেশ মিলে একটি সমঝোতা স্মারকে স্বাক্ষর করেছে।",
-    img: "https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=500&q=80",
+    img: "https://bangla.thedailystar.net/sites/default/files/styles/big_1/public/images/2025/01/27/ai-law.jpg?h=d1cb525d",
     category: "international"
   },
   {

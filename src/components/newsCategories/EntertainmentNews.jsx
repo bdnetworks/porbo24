@@ -26,14 +26,7 @@ const EntertainmentNews = () => {
     return (
       <h3 className="text-[18px] font-bold leading-[1.45] text-[#161d2cfc] lg:text-[19px]">
         {shortTitle}
-        {isLong && (
-          <>
-            {"... "}
-            <button className="border-none bg-transparent text-[15px] font-medium text-red-600">
-              See more
-            </button>
-          </>
-        )}
+        {isLong && "..."}
       </h3>
     );
   };

@@ -54,7 +54,7 @@ const InternationalNews = () => {
             {middleNews.map((news, index) => (
               <article
                 key={news.id}
-                className={`flex flex-col gap-4 py-4 md:flex-row md:items-start ${
+                className={`flex flex-col gap-2 py-4 md:flex-row md:items-start ${
                   index !== middleNews.length - 1
                     ? "border-b border-black/10"
                     : ""
@@ -62,11 +62,11 @@ const InternationalNews = () => {
               >
                 {/* text */}
                 <div className="flex-1">
-                  <h3 className="mb-3 text-[22px] font-bold leading-[1.45] text-[#111827]">
+                  <h3 className="mb-3 text-[19px] font-bold leading-[1.45] text-[#111827]">
                     {news.title}
                   </h3>
 
-                  <p className="mb-4 line-clamp-2 text-[17px] leading-8 text-[#6b7280]">
+                  <p className="mb-4 line-clamp-3 text-[16px] leading-6 text-[#6b7280]">
                     {news.description}
                   </p>
 

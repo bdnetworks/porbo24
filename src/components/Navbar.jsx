@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import {
   FaMapMarkerAlt,
   FaCalendarAlt,
@@ -9,6 +10,7 @@ import {
 } from "react-icons/fa";
 
 const categories = [
+  "হোম",
   "সর্বশেষ",
   "বাংলাদেশ",
   "রাজনীতি",
@@ -80,33 +82,9 @@ export default function Navbar() {
              <img src="./Logo.png" alt="porbo25-logo"  className="w-[4rem]"/>
             </div>
 
-            {/* Search + Hamburger (Only visible when not sticky) */}
-            <div className="items-center gap-3 flex">
-             
-
-              {/* Search */}
-              <div className="flex h-10 w-[260px] max-md:w-[180px] items-center overflow-hidden rounded border border-gray-300 bg-white">
-                <input
-                  type="text"
-                  placeholder="Search..."
-                  className="h-full w-full px-3 text-sm outline-none"
-                />
-                <button className="flex h-full w-12 items-center justify-center border-l border-gray-300 text-gray-700 hover:bg-gray-100 transition-colors">
-                  <FaSearch />
-                </button>
-
-              </div>
-
-               {/* Hamburger */}
-              <button
-                type="button"
-                onClick={() => setIsMenuOpen(true)}
-                className="flex h-10 w-10 items-center justify-center rounded bg-[#07186b] text-white hover:bg-[#0a1f5e] transition-colors"
-              >
-                <FaBars />
-              </button> 
-
-            </div>
+            {/* ADS Section (Only visible when not sticky) */}
+            <img src='./adsNav.png' alt="If ad's need call: 9617-888-807" className="w-[500px]" />
+            
           </div>
         </div>
 
@@ -115,7 +93,7 @@ export default function Navbar() {
           <div className="mx-auto max-w-[1280px] px-4">
             <div className="flex items-center gap-3">
               {/* Search + Hamburger (Only visible when sticky) */}
-              {isSticky && (
+             
                 <div className="hidden items-center gap-2 md:flex shrink-0">
                   <button
                     type="button"
@@ -136,7 +114,7 @@ export default function Navbar() {
                     </button>
                   </div>
                 </div>
-              )}
+           
 
               {/* Categories */}
               <div className="flex items-center overflow-x-auto whitespace-nowrap flex-1 thin-scrollbar">
@@ -164,7 +142,7 @@ export default function Navbar() {
           />
 
           <aside className="relative z-10 w-[280px] max-w-[85vw] h-[100vh] overflow-y-scroll bg-white shadow-2xl">
-            <div className="flex items-center justify-between gap-16 border-b border-gray-200 px-4 py-4 fixed bg-white">
+            <div className="flex items-center justify-between gap-24 border-b border-gray-200 px-4 py-4 fixed bg-white">
               <h2 className="text-lg font-semibold">ক্যাটেগরি মেনু</h2>
               <button
                 type="button"
@@ -181,7 +159,7 @@ export default function Navbar() {
                     key={item}
                     type="button"
                     onClick={() => setIsMenuOpen(false)}
-                    className="w-full rounded-lg px-4 py-3 text-left text-base font-medium text-gray-800 hover:bg-gray-100"
+                    className="w-full  px-4 py-3 border-b border-gray-300 text-left text-base font-medium text-gray-800 hover:bg-gray-100"
                   >
                     {item}
                   </button>

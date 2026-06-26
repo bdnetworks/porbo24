@@ -204,12 +204,12 @@ const DeshSection = () => {
               >
                 {/* text */}
                 <div className="flex-1">
-                  <h3 className="mb-3 text-[22px] font-bold leading-[1.45] text-[#111827]">
+                  <h3 className="mb-3 line-clamp-3  text-[19px] font-bold leading-[1.45] text-[#111827]">
                     {news.title}
                   </h3>
 
                   {/* পুরো description না, শুধু 2 line */}
-                  <p className="mb-4 line-clamp-2 text-[17px] leading-8 text-[#6b7280]">
+                  <p className="mb-4 line-clamp-3 text-[16px] leading-6 text-[#6b7280]">
                     {news.description}
                   </p>
 
@@ -248,7 +248,7 @@ const DeshSection = () => {
                 }`}
               >
                 <div className="flex-1">
-                  <h3 className="mb-3 text-[21px] font-bold leading-[1.45] text-[#111827]">
+                  <h3 className="mb-3 text-[19px] font-bold leading-[1.45] text-[#111827]">
                     {news.title}
                   </h3>
 

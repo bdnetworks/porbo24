@@ -11,14 +11,7 @@ const ForYou = () => {
     return (
       <h1 className="text-[20px] font-bold leading-[1.45] text-[#111827]">
         {shortTitle}
-        {isLong && (
-          <>
-            {"... "}
-            <button className="border-none bg-transparent p-0 text-[15px] font-medium text-red-600">
-              See more
-            </button>
-          </>
-        )}
+        {isLong && "..."}
       </h1>
     );
   };

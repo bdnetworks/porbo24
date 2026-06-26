@@ -34,14 +34,7 @@ const NewsTitle = ({
         {isLong && "..."}
       </h3>
 
-      {showSeeMore && isLong && (
-        <button
-          type="button"
-          className="mt-1 border-none bg-transparent p-0 text-[13px] font-medium text-red-600"
-        >
-          See more
-        </button>
-      )}
+
     </div>
   );
 };
@@ -58,24 +51,15 @@ const NewsTime = ({ text = "১ ঘণ্টা আগে" }) => (
 ========================= */
 const SmallSideNews = ({ news, reverse = false }) => {
   return (
-    <article className="flex items-start gap-3 border-b border-black/10 pb-5">
+    <article className="grid items-start gap-3 border-b border-black/10 pb-5">
       {!reverse && (
-        <div className="min-w-0 flex-1">
+        <div className="min-w-0 flex">
           <NewsTitle
             title={news.title}
-            wordLimit={6}
-            className="text-[17px] font-bold leading-[1.45] text-[#1f1f1f]"
+            wordLimit={12}
+            className="text-[19px] font-bold leading-[1.45] text-[#1f1f1f]"
           />
-          {news.description && (
-            <p className="mt-2 text-[15px] leading-7 text-[#6b7280] line-clamp-3">
-              {news.description}
-            </p>
-          )}
-          <NewsTime />
-        </div>
-      )}
-
-      {news.img && (
+         {news.img && (
         <div className="h-[82px] w-[110px] shrink-0 overflow-hidden">
           <img
             src={news.img}
@@ -84,6 +68,17 @@ const SmallSideNews = ({ news, reverse = false }) => {
           />
         </div>
       )}
+        </div>
+      )}
+
+        {news.description && (
+            <p className="mt-2 text-[15px] leading-7 text-[#6b7280] line-clamp-3">
+              {news.description}
+            </p>
+          )}
+      <NewsTime />
+
+     
 
       {reverse && (
         <div className="min-w-0 flex-1">
@@ -111,25 +106,16 @@ const OpinionCard = ({ news }) => {
   return (
     <article className="border-b border-black/10 pb-5">
       <div className="flex items-start gap-4">
-        <div className="min-w-0 flex-1">
-          <p className="mb-2 text-[15px] font-bold text-red-600">মতামত</p>
+        <div className="min-w-0 flex">
+          
 
           <NewsTitle
             title={news.title}
-            wordLimit={7}
+            wordLimit={10}
             className="text-[19px] font-bold leading-[1.45] text-[#1f1f1f]"
+            
           />
-
-          {news.description && (
-            <p className="mt-2 text-[15px] leading-7 text-[#6b7280] line-clamp-4">
-              {news.description}
-            </p>
-          )}
-
-          <NewsTime text="৪৮ মিনিট আগে" />
-        </div>
-
-        {news.img && (
+            {news.img && (
           <div className="h-[78px] w-[110px] shrink-0 overflow-hidden">
             <img
               src={news.img}
@@ -138,7 +124,18 @@ const OpinionCard = ({ news }) => {
             />
           </div>
         )}
+          
+
+        </div>
+
+       
       </div>
+      {news.description && (
+            <p className="mt-2 text-[15px] leading-7 text-[#6b7280] line-clamp-4">
+              {news.description}
+            </p>
+          )}
+          <NewsTime text="৪৮ মিনিট আগে" />
     </article>
   );
 };
@@ -193,25 +190,15 @@ const TopFeatureCard = ({ news, imageLeft = false }) => {
 ========================= */
 const MediumCard = ({ news }) => {
   return (
-    <article className="border-b border-black/10 pb-4">
+    <article className="border-b border-black/10 pb-4 ">
       <div className="flex items-start gap-4">
-        <div className="min-w-0 flex-1">
+        <div className="min-w-0 flex">
           <NewsTitle
             title={news.title}
-            wordLimit={7}
-            className="text-[18px] font-bold leading-[1.45] text-[#1f1f1f]"
+            wordLimit={8}
+            className="text-[19px] font-bold leading-[1.45] text-[#1f1f1f]"
           />
-
-          {news.description && (
-            <p className="mt-2 text-[15px] leading-7 text-[#6b7280] line-clamp-4">
-              {news.description}
-            </p>
-          )}
-
-          <NewsTime text="১ ঘণ্টা আগে" />
-        </div>
-
-        {news.img && (
+            {news.img && (
           <div className="h-[85px] w-[110px] shrink-0 overflow-hidden">
             <img
               src={news.img}
@@ -220,7 +207,15 @@ const MediumCard = ({ news }) => {
             />
           </div>
         )}
+        </div>
+        
       </div>
+       {news.description && (
+            <p className="mt-2 text-[15px] leading-7 text-[#6b7280] line-clamp-4">
+              {news.description}
+            </p>
+          )}
+          <NewsTime text="১ ঘণ্টা আগে" />
     </article>
   );
 };
@@ -318,7 +313,7 @@ const AllNewsLayout = () => {
             {/* ad / promo block */}
             <div className="overflow-hidden bg-gradient-to-r from-[#d8fff3] via-[#d7f3ff] to-[#e7ddff] px-5 py-6 text-center">
               <p className="text-[18px] font-medium text-[#4b5563]">
-                ডেটা লোড করা বাকি
+                ADS লোড করা বাকি
               </p>
             </div>
 

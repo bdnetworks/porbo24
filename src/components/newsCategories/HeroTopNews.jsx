@@ -31,6 +31,7 @@ const HeroTopNews = () => {
 
   return (
     <section className="border-b border-[#0f766e] bg-[#d8e8e7]">
+      <img src="./Hompagebanner.webp" alt="" />
       <div className="mx-auto px-4 py-5">
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-[320px_1fr_520px]">
           {/* ================= LEFT: BIG TEXT NEWS ================= */}
@@ -49,7 +50,7 @@ const HeroTopNews = () => {
           </article>
 
           {/* ================= MIDDLE: BIG IMAGE ================= */}
-          <article className="border-b border-black/10 pb-4 lg:border-b-0 lg:border-l lg:border-r lg:border-black/10 lg:px-6 lg:pb-0">
+          <article className="border-b border-black/10 pb-4 lg:border-b-0  lg:border-r lg:border-black/10 lg:px-6 lg:pb-0">
             <img
               src={leadNews.img}
               alt={leadNews.title}
@@ -71,19 +72,12 @@ const HeroTopNews = () => {
                 >
                   {/* left text */}
                   <div className="flex-1">
-                    <h3 className="mb-2 text-[15px] font-bold leading-[1.45] text-[#111827]">
+                    <h3 className="mb-2 text-[17px] font-bold leading-[1.45] text-[#111827]">
                       {shortTitle}
                       {isLong && "..."}
                     </h3>
 
-                    {isLong && (
-                      <button
-                        type="button"
-                        className="mb-3 border-none bg-transparent p-0 text-[14px] font-medium text-red-600 outline-none"
-                      >
-                        See more
-                      </button>
-                    )}
+
 
                     <div>
                       <span className="text-[15px] text-[#6b7280]">

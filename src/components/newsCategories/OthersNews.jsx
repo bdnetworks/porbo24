@@ -34,14 +34,7 @@ const OthersNews = () => {
         className={`transition-all font-bold duration-200 group-hover:underline group-hover:decoration-[1px] group-hover:underline-offset-4 ${className}`}
       >
         {shortTitle}
-        {isLong && (
-          <>
-            {"... "}
-            <button className="border-none bg-transparent p-0 text-[14px] font-medium text-red-600">
-              See more
-            </button>
-          </>
-        )}
+        {isLong && "..."}
       </h3>
     );
   };
@@ -56,7 +49,7 @@ const OthersNews = () => {
         </div>
 
         {/* 8 category cards */}
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid grid-cols-1  gap-10 max-md:gap md:grid-cols-2 xl:grid-cols-4">
           {categoryOrder.map((categoryKey) => {
             const newsList = othersNewsData[categoryKey];
             const firstNews = newsList[0];
@@ -65,11 +58,11 @@ const OthersNews = () => {
             return (
               <section
                 key={categoryKey}
-                className="group bg-white"
+                className="group bg-white border-r-[1px] border-gray-300 [&:nth-child(4n)]:border-r-0 pr-2"
               >
                 {/* category title */}
                 <div className="mb-4">
-                  <h3 className="text-[24px] font-bold text-[#111827]">
+                  <h3 className="text-[24px] font-bold text-[#111827] underline underline-offset-8 decoration-sky-500 decoration-2">
                     {categoryLabels[categoryKey]}
                   </h3>
                 </div>

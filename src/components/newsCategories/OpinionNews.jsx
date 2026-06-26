@@ -14,14 +14,7 @@ const OpinionNews = () => {
     return (
       <h3 className={className}>
         {shortTitle}
-        {isLong && (
-          <>
-            {"... "}
-            <button className="border-none bg-transparent text-[15px] font-medium text-red-600">
-              See more
-            </button>
-          </>
-        )}
+        {isLong && "..."}
       </h3>
     );
   };

@@ -38,7 +38,7 @@ const RankedList = ({ items }) => (
         >
           {toBanglaNum(i + 1)}
         </span>
-        <span style={{ fontSize: 13, color: '#222', lineHeight: 1.6, flex: 1 }}>
+        <span style={{ fontSize: 19, color: '#222', lineHeight: 1.6, flex: 1 }}>
           {item.title}
         </span>
       </div>
@@ -63,7 +63,7 @@ const HeroCard = ({ item }) => (
         padding: '24px 14px 14px',
       }}
     >
-      <div style={{ color: '#fff', fontSize: 17, fontWeight: 700, lineHeight: 1.5 }}>
+      <div style={{ color: '#fff', fontSize: 28, fontWeight: 700, lineHeight: 1.5 }}>
         {item.title}
       </div>
       <div style={{ color: '#ccc', fontSize: 11, marginTop: 4 }}>{times[0]}</div>
@@ -78,7 +78,7 @@ const SubCard = ({ item, timeIndex }) => (
       alt={item.title}
       style={{ width: '100%', height: 130, objectFit: 'cover', display: 'block' }}
     />
-    <div style={{ fontSize: 12.5, color: '#222', lineHeight: 1.5, padding: '6px 2px 0', fontWeight: 600 }}>
+    <div style={{ fontSize: 17, color: '#222', lineHeight: 1.5, padding: '6px 2px 0', fontWeight: 600 }}>
       {item.title}
     </div>
     <div style={{ fontSize: 11, color: '#888', marginTop: 3, padding: '0 2px' }}>
@@ -105,7 +105,7 @@ const RightCard = ({ item, isLive }) => (
           <span style={{ color: '#d0021b', fontSize: 10, fontWeight: 700 }}>সরাসরি</span>
         </div>
       )}
-      <div style={{ fontSize: 12, color: '#222', lineHeight: 1.5, fontWeight: 600 }}>
+      <div style={{ fontSize: 17, color: '#222', lineHeight: 1.5, fontWeight: 600 }}>
         {item.title}
       </div>
     </div>
@@ -171,7 +171,7 @@ const Sports = () => {
           grid
           grid-cols-1
           md:grid-cols-[240px_1fr]
-          xl:grid-cols-[240px_1fr_200px]
+          xl:grid-cols-[240px_1fr_245px]
           border-t-2 border-[#d0021b]
           max-w-[1230px]
           mx-auto
@@ -185,7 +185,7 @@ const Sports = () => {
           <div
             style={{
               display: 'flex',
-              borderBottom: '2px solid #d0021b',
+              
               margin: '0 12px 10px',
             }}
           >
