@@ -95,7 +95,7 @@ const DeshSection = () => {
         {/* ===================== Section Header ===================== */}
         <div className="mb-6 flex items-center gap-3 border-t-4 border-black pt-4">
           <h2 className="text-[28px] font-bold text-[#111827]">বাংলাদেশ</h2>
-          <span className="text-[30px] font-light text-red-600">›</span>
+          <span className="text-[30px] font-light text-[#07186b]">›</span>
         </div>
 
         {/* ===================== Filter/Search Row ===================== */}
@@ -257,7 +257,7 @@ const DeshSection = () => {
                   </span>
                 </div>
 
-                <div className="h-[110px] w-[150px] shrink-0 overflow-hidden">
+                <div className="h-[110px] w-[150px] max-sm:w-[120px] shrink-0 overflow-hidden">
                   <img
                     src={news.img}
                     alt={news.title}

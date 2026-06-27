@@ -45,7 +45,7 @@ const OthersNews = () => {
         {/* page title */}
         <div className="mb-8 flex items-center gap-3 border-t-4 border-black/30 pt-4">
           <h2 className="text-[32px] font-bold text-[#111827]">অন্যান্য</h2>
-          <span className="text-[32px] text-red-600">›</span>
+          <span className="text-[32px] text-[#07186b]">›</span>
         </div>
 
         {/* 8 category cards */}

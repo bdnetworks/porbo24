@@ -49,7 +49,7 @@ export default function Navbar() {
       <header className="sticky top-0 z-50 bg-white">
         {/* ========== 1st Line: Top Info Bar ========== */}
         <div className="bg-[#07186b] text-white ">
-          <div className="mx-auto flex max-sm:flex-wrap max-w-[1280px] items-center justify-between px-4 py-2 text-sm">
+          <div className="mx-auto flex max-sm:flex-wrap max-w-[1280px] items-center justify-between gap-2 px-4 py-2 text-sm">
             <div className="flex flex-wrap items-center gap-4">
               <div className="flex items-center gap-2">
                 <FaMapMarkerAlt className="text-[14px]" />
@@ -73,13 +73,13 @@ export default function Navbar() {
         <div
           className={`border-b border-gray-200 bg-white transition-all duration-300 overflow-hidden ${
             isSticky
-              ? "max-h-[100px] py-2 opacity-100 md:max-h-0 md:py-0 md:opacity-0"
+              ? "max-h-[150px] py-2 opacity-100 md:max-h-0 md:py-0 md:opacity-0"
               : "max-h-[100px] py-2 opacity-100"
           }`}
         >
           <div className="mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-4">
             <div className="shrink-0">
-             <img src="./Logo.png" alt="porbo25-logo"  className="w-[4rem]"/>
+             <img src="./Logo.png" alt="porbo25-logo"  className="w-[5rem]"/>
             </div>
              {/* ads section only visible tab and big device */}
             <div className="hidden md:block">

@@ -18,7 +18,7 @@ const InternationalNews = () => {
         {/* ===================== Section Header ===================== */}
         <div className="mb-6 flex items-center gap-3 border-t-4 border-black pt-4">
           <h2 className="text-[28px] font-bold text-[#111827]">আন্তর্জাতিক</h2>
-          <span className="text-[30px] font-light text-red-600">›</span>
+          <span className="text-[30px] font-light text-[#07186b]">›</span>
         </div>
 
         {/* ===================== Main News Grid ===================== */}
@@ -114,7 +114,7 @@ const InternationalNews = () => {
                   </span>
                 </div>
 
-                <div className="h-[110px] w-[150px] shrink-0 overflow-hidden">
+                <div className="h-[110px] w-[150px] max-sm:w-[110px] shrink-0 overflow-hidden">
                   <img
                     src={news.img}
                     alt={news.title}

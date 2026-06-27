@@ -37,7 +37,7 @@ const EntertainmentNews = () => {
         {/* ===================== Section Header ===================== */}
         <div className="mb-8 flex items-center gap-3 border-t-4 border-black pt-4">
           <h2 className="text-[28px] font-bold text-[#111827]">বিনোদন</h2>
-          <span className="text-[32px] font-light text-red-600">›</span>
+          <span className="text-[32px] font-light text-[#07186b]">›</span>
         </div>
 
         {/* ===================== Main Grid ===================== */}
@@ -73,7 +73,7 @@ const EntertainmentNews = () => {
                 </div>
 
                 {/* image */}
-                <div className="h-[132px] w-[200px] shrink-0 overflow-hidden">
+                <div className="h-[132px] w-[200px] max-sm:w-[110px] shrink-0 overflow-hidden">
                   <img
                     src={news.img}
                     alt={news.title}
@@ -128,7 +128,7 @@ const EntertainmentNews = () => {
                 <div className="flex-1">
                   {renderTitle(news.title, 6)}
 
-                  <p className="mt-3 line-clamp-2 text-[16px] leading-7 text-[#6b7280]">
+                  <p className="mt-3 line-clamp-2 text-[16px] leading-7 text-[#6b7280] cursor-pointer">
                     {news.description}
                   </p>
 
@@ -142,7 +142,7 @@ const EntertainmentNews = () => {
                 </div>
 
                 {/* image */}
-                <div className="h-[132px] w-[200px] shrink-0 overflow-hidden">
+                <div className="h-[132px] w-[200px] max-sm:w-[110px] shrink-0 overflow-hidden cursor-pointer">
                   <img
                     src={news.img}
                     alt={news.title}

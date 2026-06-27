@@ -172,7 +172,7 @@ const Sports = () => {
           grid-cols-1
           md:grid-cols-[240px_1fr]
           xl:grid-cols-[240px_1fr_245px]
-          border-t-2 border-[#d0021b]
+          border-t-2 border-[#07186b]
           max-w-[1230px]
           mx-auto
           mt-6

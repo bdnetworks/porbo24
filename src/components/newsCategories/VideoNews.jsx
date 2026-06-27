@@ -8,7 +8,7 @@ const VideoNews = () => {
   const scrollSlider = (direction) => {
     if (!sliderRef.current) return;
 
-    const cardWidth = 380; // একেক click এ যতটুকু slide হবে
+    const cardWidth = 325; // একেক click এ যতটুকু slide হবে
     sliderRef.current.scrollBy({
       left: direction === "left" ? -cardWidth : cardWidth,
       behavior: "smooth",
@@ -35,7 +35,7 @@ const VideoNews = () => {
         <div className="mb-6 flex items-center justify-between border-t-4 border-black/35 pt-4">
           <div className="flex items-center gap-3">
             <h2 className="text-[28px] font-bold text-[#111827]">ভিডিও</h2>
-            <span className="text-[32px] font-light text-red-600">›</span>
+            <span className="text-[32px] font-light text-[#07186b]">›</span>
           </div>
 
           {/* arrows */}
@@ -64,7 +64,7 @@ const VideoNews = () => {
           {videoNewsData.map((video) => (
             <article
               key={video.id}
-              className="min-w-[320px] max-w-[320px] flex-shrink-0 bg-white sm:min-w-[360px] sm:max-w-[360px] lg:min-w-[380px] lg:max-w-[380px]"
+              className="min-w-[300px] max-w-[300px] flex-shrink-0 bg-white sm:min-w-[360px] sm:max-w-[360px] lg:min-w-[380px] lg:max-w-[380px]"
             >
               {/* thumbnail */}
               <div className="group relative overflow-hidden">
@@ -78,7 +78,7 @@ const VideoNews = () => {
                 <div className="absolute inset-0 bg-black/20"></div>
 
                 {/* play button */}
-                <button className="absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-red-600 text-white shadow-lg">
+                <button className="absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#07186b] text-white shadow-lg">
                   <FiPlay className="ml-1 text-[30px]" />
                 </button>
 

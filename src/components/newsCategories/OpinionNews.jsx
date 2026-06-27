@@ -70,10 +70,10 @@ const OpinionNews = () => {
                     <img
                       src={item.authorImage}
                       alt={item.author}
-                      className="h-28 w-28 rounded-full object-cover"
+                      className="h-28 w-28 max-sm:w-22 max-sm:h-22 rounded-full object-cover"
                     />
                   ) : (
-                    <div className="flex h-28 w-28 items-center justify-center rounded-full bg-[#e5e7eb] text-[#c4c4c4]">
+                    <div className="flex h-28 max-sm:h-22 w-28 max-sm:w-22  items-center justify-center rounded-full bg-[#e5e7eb] text-[#c4c4c4]">
                       <FiEdit3 className="text-[42px]" />
                     </div>
                   )}
@@ -81,11 +81,11 @@ const OpinionNews = () => {
 
                 {/* content */}
                 <div className="flex-1">
-                  <div className="mb-3 flex flex-wrap items-center gap-2">
-                    <span className="text-[18px] font-bold text-red-600">
+                  <div className="mb-3 flex flex-wrap max-sm:flex-col items-center max-sm:items-start gap-2">
+                    <span className="text-[18px]  font-bold text-red-600">
                       {item.label}
                     </span>
-                    <span className="text-[22px] leading-none text-[#9ca3af]">
+                    <span className="text-[19px] leading-none text-[#9ca3af]">
                       •
                     </span>
                     <div className="min-w-0 flex-1">

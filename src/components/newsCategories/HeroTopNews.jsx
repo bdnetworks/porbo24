@@ -1,5 +1,6 @@
 import React from "react";
 import { newsData } from "../../data/newsData";
+import { videoNewsData } from "../../data/videoNewsData";
 
 const HeroTopNews = () => {
   const sportsNews = newsData
@@ -9,7 +10,7 @@ const HeroTopNews = () => {
   if (sportsNews.length < 5) return null;
 
   const leadNews = sportsNews[0];
-  const sideNews = sportsNews.slice(1, 5);
+  const sideNews = videoNewsData.slice(0, 4);
 
   // কত word পর্যন্ত title দেখাবে
   const TITLE_WORD_LIMIT = 6;
@@ -30,7 +31,7 @@ const HeroTopNews = () => {
   };
 
   return (
-    <section className="border-b border-[#0f766e] bg-[#d8e8e7]">
+    <section className="border-b border-[#0f766e] bg-[#fcd2d471]">
       <img src="./Hompagebanner.webp" alt="" />
       <div className="mx-auto px-4 py-5">
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-[320px_1fr_520px]">
@@ -72,27 +73,38 @@ const HeroTopNews = () => {
                 >
                   {/* left text */}
                   <div className="flex-1">
+                    
                     <h3 className="mb-2 text-[17px] font-bold leading-[1.45] text-[#111827]">
                       {shortTitle}
                       {isLong && "..."}
                     </h3>
 
-
-
                     <div>
                       <span className="text-[15px] text-[#6b7280]">
-                        ২ ঘণ্টা আগে
+                        {news.publishedAt || "২ ঘণ্টা আগে"}
                       </span>
                     </div>
                   </div>
 
                   {/* right image */}
-                  <div className="h-[96px] w-[108px] shrink-0 overflow-hidden">
+                  <div className="relative h-[96px] w-[108px] shrink-0 overflow-hidden rounded-md  cursor-pointer">
                     <img
                       src={news.img}
                       alt={news.title}
-                      className="h-full w-full object-cover"
+                      className="h-full w-full object-cover cursor-pointer"
                     />
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+                      <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-red-600 shadow-md">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          className="ml-0.5 h-4 w-4"
+                        >
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
+                    </div>
                   </div>
                 </article>
               );
