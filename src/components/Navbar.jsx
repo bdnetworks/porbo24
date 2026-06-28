@@ -7,8 +7,10 @@ import {
   FaBars,
   FaSearch,
   FaTimes,
+  
 } from "react-icons/fa";
-
+import { TbWorld } from "react-icons/tb";
+import { Link } from "react-router";
 const categories = [
   "হোম",
   "সর্বশেষ",
@@ -62,11 +64,17 @@ export default function Navbar() {
               </div>
             </div>
 
-            <div className="flex items-center gap-2 whitespace-nowrap">
+            <div className="flex items-center gap-12 whitespace-nowrap">
+             <div className="flex items-center gap-2 whitespace-nowrap"> 
               <FaRedoAlt className="text-[14px]" />
               <span>আপডেট: ৫ মিনিট ১২ সেকেন্ড আগে</span>
+              </div>
+              <a className="flex items-center justify-center gap-[5px] text-[1rem] border px-2 py-[0.5px] rounded-[0.5rem] hover:bg-[#fcd2d471] transition-all cursor-pointer ">
+                <TbWorld className="text-[1.2rem]"/> <span >Eng</span>
+                </a>
             </div>
           </div>
+          
         </div>
 
         {/* ========== 2nd Line: Logo + Search + Hamburger ========== */}
