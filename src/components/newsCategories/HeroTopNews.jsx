@@ -1,6 +1,7 @@
 import React from "react";
 import { newsData } from "../../data/newsData";
 import { videoNewsData } from "../../data/videoNewsData";
+import { Link } from "react-router";
 
 const HeroTopNews = () => {
   const sportsNews = newsData
@@ -32,11 +33,18 @@ const HeroTopNews = () => {
 
   return (
     <section className="border-b border-[#0f766e] bg-[#fcd2d471]">
+     
+     {/* home page top banner */}
       <img src="./Hompagebanner.webp" alt="" />
+
+
       <div className="mx-auto px-4 py-5">
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[320px_1fr_520px]">
+        <div className="grid grid-cols-1 gap-6  xl:grid-cols-[320px_1fr_520px]">
           {/* ================= LEFT: BIG TEXT NEWS ================= */}
-          <article className="flex flex-col justify-between border-b border-black/10 pb-4 lg:border-b-0 lg:pb-0">
+          <Link
+            to={`/news/news/${leadNews.id}`}
+            className="flex flex-col justify-between border-b border-black/10 pb-4 lg:border-b-0 lg:pb-0"
+          >
             <div>
               <h2 className="mb-4 text-[24px] font-bold leading-[1.45] text-[#111827]">
                 {leadNews.title}
@@ -48,14 +56,14 @@ const HeroTopNews = () => {
             </div>
 
             <span className="text-[15px] text-[#6b7280]">২৫ মিনিট আগে</span>
-          </article>
+          </Link>
 
           {/* ================= MIDDLE: BIG IMAGE ================= */}
           <article className="border-b border-black/10 pb-4 lg:border-b-0  lg:border-r lg:border-black/10 lg:px-6 lg:pb-0">
             <img
               src={leadNews.img}
               alt={leadNews.title}
-              className="h-[250px] w-full object-cover"
+              className="h-[250px] max-xl:h-[350px] max-md:h-[250px] w-full  object-cover"
             />
           </article>
 
@@ -65,8 +73,9 @@ const HeroTopNews = () => {
               const { shortTitle, isLong } = getTruncatedTitle(news.title);
 
               return (
-                <article
+                <Link
                   key={news.id}
+                  to={`/news/video/${news.id}`}
                   className={`flex items-start justify-between gap-4 ${
                     index < 2 ? "border-b border-black/10 pb-6" : ""
                   }`}
@@ -106,7 +115,7 @@ const HeroTopNews = () => {
                       </div>
                     </div>
                   </div>
-                </article>
+                </Link>
               );
             })}
           </div>

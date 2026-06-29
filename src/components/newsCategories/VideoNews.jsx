@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { Link } from "react-router";
 import { FiChevronLeft, FiChevronRight, FiPlay } from "react-icons/fi";
 import { videoNewsData } from "../../data/videoNewsData";
 
@@ -62,8 +63,9 @@ const VideoNews = () => {
           className="scrollbar-hide flex gap-6 overflow-x-auto scroll-smooth"
         >
           {videoNewsData.map((video) => (
-            <article
+            <Link
               key={video.id}
+              to={`/news/video/${video.id}`}
               className="min-w-[300px] max-w-[300px] flex-shrink-0 bg-white sm:min-w-[360px] sm:max-w-[360px] lg:min-w-[380px] lg:max-w-[380px]"
             >
               {/* thumbnail */}
@@ -100,7 +102,7 @@ const VideoNews = () => {
                   {video.publishedAt}
                 </span>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 import { newsData } from "../../data/newsData";
 
 const InternationalNews = () => {
@@ -26,34 +27,37 @@ const InternationalNews = () => {
           {/* =========================================================
               LEFT COLUMN - Featured big news
           ========================================================= */}
-          <article>
-            <div className="mb-4 overflow-hidden">
-              <img
-                src={featuredNews.img}
-                alt={featuredNews.title}
-                className="h-[420px] w-full object-cover"
-              />
-            </div>
+          <Link to={`/news/news/${featuredNews.id}`}>
+            <article>
+              <div className="mb-4 overflow-hidden">
+                <img
+                  src={featuredNews.img}
+                  alt={featuredNews.title}
+                  className="h-[420px] w-full object-cover"
+                />
+              </div>
 
-            <h3 className="mb-4 text-[26px] font-bold leading-[1.35] text-[#111827]">
-              {featuredNews.title}
-            </h3>
+              <h3 className="mb-4 text-[26px] font-bold leading-[1.35] text-[#111827]">
+                {featuredNews.title}
+              </h3>
 
-            {/* description পুরো না দেখিয়ে 3 line */}
-            <p className="mb-4 line-clamp-3 text-[18px] leading-8 text-[#6b7280]">
-              {featuredNews.description}
-            </p>
+              {/* description পুরো না দেখিয়ে 3 line */}
+              <p className="mb-4 line-clamp-3 text-[18px] leading-8 text-[#6b7280]">
+                {featuredNews.description}
+              </p>
 
-            <span className="text-[16px] text-[#6b7280]">১২ মিনিট আগে</span>
-          </article>
+              <span className="text-[16px] text-[#6b7280]">১২ মিনিট আগে</span>
+            </article>
+          </Link>
 
           {/* =========================================================
               MIDDLE COLUMN - 3 stacked news
           ========================================================= */}
           <div className="border-black/10 xl:border-l xl:border-r xl:px-6">
             {middleNews.map((news, index) => (
-              <article
+              <Link
                 key={news.id}
+                to={`/news/news/${news.id}`}
                 className={`flex flex-col gap-2 py-4 md:flex-row md:items-start ${
                   index !== middleNews.length - 1
                     ? "border-b border-black/10"
@@ -87,7 +91,7 @@ const InternationalNews = () => {
                     className="h-full w-full object-cover"
                   />
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
 
@@ -96,8 +100,9 @@ const InternationalNews = () => {
           ========================================================= */}
           <div>
             {rightNews.map((news, index) => (
-              <article
+              <Link
                 key={news.id}
+                to={`/news/news/${news.id}`}
                 className={`flex gap-4 py-4 ${
                   index !== rightNews.length - 1
                     ? "border-b border-black/10"
@@ -121,7 +126,7 @@ const InternationalNews = () => {
                     className="h-full w-full object-cover"
                   />
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>

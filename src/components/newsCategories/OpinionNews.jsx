@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 import { FiChevronRight, FiEdit3 } from "react-icons/fi";
 import { opinionData } from "../../data/opinionaData";
 
@@ -31,7 +32,7 @@ const OpinionNews = () => {
         {/* =================== Main Layout =================== */}
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[460px_1fr]">
           {/* ================= LEFT FEATURED CARD ================= */}
-          <article className="border border-black/20 bg-white px-8 py-8">
+          <Link to={`/news/opinion/${featuredNews.id}`} className="block border border-black/20 bg-white px-8 py-8">
             {/* top title blocks */}
             <div className="mb-8">
               <div className="inline-block bg-[#001b5e] px-4 py-2 text-[20px] font-bold leading-tight text-[#ffcc00]">
@@ -53,13 +54,14 @@ const OpinionNews = () => {
               <span className="font-semibold">লেখা:</span>{" "}
               <span className="text-[#6b7280]">{featuredNews.author}</span>
             </p>
-          </article>
+          </Link>
 
           {/* ================= RIGHT LIST ================= */}
           <div className="flex flex-col">
             {sideNews.map((item, index) => (
-              <article
+              <Link
                 key={item.id}
+                to={`/news/opinion/${item.id}`}
                 className={`flex gap-6 py-6 ${
                   index !== sideNews.length - 1 ? "border-b border-black/15" : ""
                 }`}
@@ -106,7 +108,7 @@ const OpinionNews = () => {
                     <span className="text-[#6b7280]">{item.author}</span>
                   </p>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>

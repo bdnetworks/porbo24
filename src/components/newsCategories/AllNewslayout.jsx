@@ -1,5 +1,7 @@
 import React from "react";
+import { Link } from "react-router";
 import { newsData } from "../../data/newsData";
+
 
 /* =========================
    helper: title truncate
@@ -51,7 +53,7 @@ const NewsTime = ({ text = "১ ঘণ্টা আগে" }) => (
 ========================= */
 const SmallSideNews = ({ news, reverse = false }) => {
   return (
-    <article className="grid items-start gap-3 border-b border-black/10 pb-5">
+    <Link to={`/news/news/${news.id}`} className="grid items-start gap-3 border-b border-black/10 pb-5">
       {!reverse && (
         <div className="min-w-0 flex">
           <NewsTitle
@@ -60,7 +62,7 @@ const SmallSideNews = ({ news, reverse = false }) => {
             className="text-[19px] font-bold leading-[1.45] text-[#1f1f1f]"
           />
          {news.img && (
-        <div className="h-[82px] w-[110px] shrink-0 overflow-hidden">
+        <div className="h-[82px] w-[110px] shrink-0 overflow-hidden max-xl:ml-2">
           <img
             src={news.img}
             alt={news.title}
@@ -95,7 +97,7 @@ const SmallSideNews = ({ news, reverse = false }) => {
           <NewsTime />
         </div>
       )}
-    </article>
+    </Link>
   );
 };
 
@@ -104,8 +106,8 @@ const SmallSideNews = ({ news, reverse = false }) => {
 ========================= */
 const OpinionCard = ({ news }) => {
   return (
-    <article className="border-b border-black/10 pb-5">
-      <div className="flex items-start gap-4">
+    <Link to={`/news/news/${news.id}`} className="block border-b border-black/10 pb-5">
+      <div className="flex items-start gap-4 ">
         <div className="min-w-0 flex">
           
 
@@ -116,7 +118,7 @@ const OpinionCard = ({ news }) => {
             
           />
             {news.img && (
-          <div className="h-[78px] w-[110px] shrink-0 overflow-hidden">
+          <div className="h-[78px] w-[110px] shrink-0 overflow-hidden max-xl:ml-2">
             <img
               src={news.img}
               alt={news.title}
@@ -136,7 +138,7 @@ const OpinionCard = ({ news }) => {
             </p>
           )}
           <NewsTime text="৪৮ মিনিট আগে" />
-    </article>
+    </Link>
   );
 };
 
@@ -145,7 +147,7 @@ const OpinionCard = ({ news }) => {
 ========================= */
 const TopFeatureCard = ({ news, imageLeft = false }) => {
   return (
-    <article className="grid grid-cols-1 gap-4 border-b border-black/10 pb-5 lg:grid-cols-[1.1fr_1fr]">
+    <Link to={`/news/news/${news.id}`} className="grid grid-cols-1 gap-4 border-b border-black/10 pb-5 lg:grid-cols-[1.1fr_1fr]">
       {imageLeft && news.img && (
         <div className="overflow-hidden">
           <img
@@ -181,7 +183,7 @@ const TopFeatureCard = ({ news, imageLeft = false }) => {
           />
         </div>
       )}
-    </article>
+    </Link>
   );
 };
 
@@ -190,7 +192,7 @@ const TopFeatureCard = ({ news, imageLeft = false }) => {
 ========================= */
 const MediumCard = ({ news }) => {
   return (
-    <article className="border-b border-black/10 pb-4 ">
+    <Link to={`/news/news/${news.id}`} className="block border-b border-black/10 pb-4 ">
       <div className="flex items-start gap-4">
         <div className="min-w-0 flex">
           <NewsTitle
@@ -199,7 +201,7 @@ const MediumCard = ({ news }) => {
             className="text-[19px] font-bold leading-[1.45] text-[#1f1f1f]"
           />
             {news.img && (
-          <div className="h-[85px] w-[110px] shrink-0 overflow-hidden">
+          <div className="h-[85px] w-[110px] shrink-0 overflow-hidden max-xl:ml-2">
             <img
               src={news.img}
               alt={news.title}
@@ -216,7 +218,7 @@ const MediumCard = ({ news }) => {
             </p>
           )}
           <NewsTime text="১ ঘণ্টা আগে" />
-    </article>
+    </Link>
   );
 };
 
@@ -225,13 +227,13 @@ const MediumCard = ({ news }) => {
 ========================= */
 const ImageTopCard = ({ news }) => {
   return (
-    <article className="border-b border-black/10 pb-4 lg:border-b-0 lg:border-r lg:border-black/10 lg:pr-4">
+    <Link to={`/news/news/${news.id}`} className="block border-b border-black/10 pb-4 lg:border-b-0 lg:border-r lg:border-black/10 lg:pr-4">
       {news.img && (
         <div className="mb-3 overflow-hidden">
           <img
             src={news.img}
             alt={news.title}
-            className="h-[155px] w-full object-cover"
+            className="h-[155px] max-lg:h-[220px] w-full object-cover"
           />
         </div>
       )}
@@ -243,7 +245,7 @@ const ImageTopCard = ({ news }) => {
       />
 
       <NewsTime text="২ ঘণ্টা আগে" />
-    </article>
+    </Link>
   );
 };
 
@@ -252,7 +254,7 @@ const ImageTopCard = ({ news }) => {
 ========================= */
 const TextOnlyCard = ({ news }) => {
   return (
-    <article className="border-b border-black/10 pb-5">
+    <Link to={`/news/news/${news.id}`} className="block border-b border-black/10 pb-5">
       <NewsTitle
         title={news.title}
         wordLimit={8}
@@ -266,13 +268,13 @@ const TextOnlyCard = ({ news }) => {
       )}
 
       <NewsTime text="৫৫ মিনিট আগে" />
-    </article>
+    </Link>
   );
 };
 
 const TitleOnlyCard = ({ news }) => {
   return (
-    <article className="border-b border-black/10 pb-4">
+    <Link to={`/news/news/${news.id}`} className="block border-b border-black/10 pb-4">
       <NewsTitle
         title={news.title}
        wordLimit={8}
@@ -285,7 +287,7 @@ const TitleOnlyCard = ({ news }) => {
         </p>
       )}
 
-    </article>
+    </Link>
   );
 };
 
@@ -327,8 +329,11 @@ const AllNewsLayout = () => {
           {/* =========================================================
               LEFT COLUMN
           ========================================================= */}
-          <div className="space-y-5 xl:border-r xl:border-black/15 xl:pr-6">
+          <div className="space-y-5 gap-4 max-xl:grid max-xl:grid-cols-2 max-sm:grid-cols-1 xl:border-r xl:border-black/15 xl:pr-6">
+          
+  
             <SmallSideNews news={leftTop} />
+           
             
             {/* ad / promo block */}
             <div className="overflow-hidden bg-[#07186b] px-5 py-6 text-center">
@@ -354,21 +359,22 @@ const AllNewsLayout = () => {
             </div>
 
             {/* second row */}
-            <div className="grid grid-cols-1 gap-5 border-t border-black/10 pt-5 lg:grid-cols-2">
+            <div className="grid grid-cols-1 gap-5 border-t border-black/10 pt-5 sm:grid-cols-2">
               <MediumCard news={middleRow2Left} />
               <MediumCard news={middleRow2Right} />
             </div>
 
             {/* image cards row */}
-            <div className="grid grid-cols-1 gap-5 border-t border-black/10 pt-5 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-5 border-t border-black/10 pt-5 md:grid-cols-2 lg:grid-cols-2">
               <ImageTopCard news={middleImage1} />
               <ImageTopCard news={middleImage2} />
               <ImageTopCard news={middleImage3} />
+               <TextOnlyCard news={middleText1} />
             </div>
 
             {/* text cards row */}
-            <div className="grid grid-cols-1 gap-5 border-t border-black/10 pt-5 md:grid-cols-2 lg:grid-cols-3">
-              <TextOnlyCard news={middleText1} />
+            <div className="grid grid-cols-1 gap-5 border-t border-black/10 pt-5 md:grid-cols-2 lg:grid-cols-2">
+             
               <TextOnlyCard news={middleText2} />
               <TextOnlyCard news={middleText3} />
             </div>
@@ -377,28 +383,30 @@ const AllNewsLayout = () => {
           {/* =========================================================
               RIGHT COLUMN
           ========================================================= */}
-          <div className="space-y-5">
+          <div className="space-y-5 ">
     
-            <div className="max-w-[320px] w-[100%] border-2 h-[300px] border-gray-300 bg-[#07186b] text-center text-white">
-              ADS LOAD NEED
-              </div>
+            <main className="space-y-5 max-xl:grid max-xl:grid-cols-2 max-sm:grid-cols-1 gap-4">
 
-            
-
+        
             <OpinionCard news={right1} />
             <OpinionCard news={right2} />
             <OpinionCard news={right3} />
 
-            <div className="">
+            <div className="max-w-[320px] w-[100%] border-2 h-[300px] max-xl:h-[250px] border-gray-300 bg-[#07186b] text-center text-white">
+              ADS LOAD NEED
+              </div>
+            </main>
+
               
-              <div className="space-y-4 text-[19px] font-bold hover:text-sky-100 ">
+              <div className="space-y-4 max-xl:w-full max-xl:grid max-xl:grid-cols-3 max-sm:grid-cols-1 gap-4 text-[19px] font-bold hover:text-sky-100 ">
                 {rightTitles.map((news) => (
                   <TitleOnlyCard key={news.id} news={news} />
                 ))}
               </div>
-            </div>
-           
+      
           </div>
+
+
         </div>
       </div>
     </section>

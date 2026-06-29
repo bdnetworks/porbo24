@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 import { othersNewsData } from "../../data/othersNewsData";
 
 const OthersNews = () => {
@@ -68,7 +69,7 @@ const OthersNews = () => {
                 </div>
 
                 {/* first / featured news */}
-                <article className="group mb-5">
+                <Link to={`/news/others/${firstNews.id}`} className="group mb-5 block">
                   <div className="overflow-hidden">
                     <img
                       src={firstNews.img}
@@ -84,21 +85,22 @@ const OthersNews = () => {
                       "text-[22px] font-bold leading-[1.45] text-[#111827]"
                     )}
                   </div>
-                </article>
+                </Link>
 
                 {/* other 3 text news */}
                 <div className="space-y-4">
                   {restNews.map((news) => (
-                    <article
+                    <Link
                       key={news.id}
-                      className="group"
+                      to={`/news/others/${news.id}`}
+                      className="group block"
                     >
                       {renderTitle(
                         news.title,
                         8,
                         "text-[17px] font-medium leading-[1.7] text-[#111827]"
                       )}
-                    </article>
+                    </Link>
                   ))}
                 </div>
               </section>

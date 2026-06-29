@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 import { entertainment } from "../../data/entertainment";
 const ForYou = () => {
   const apnerJonnoNews = entertainment.slice(0, 4);
@@ -28,7 +29,7 @@ const ForYou = () => {
         {/* news grid */}
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           {apnerJonnoNews.map((news) => (
-            <article key={news.id} className="bg-white p-2">
+            <Link key={news.id} to={`/news/entertainment/${news.id}`} className="block bg-white p-2">
               {/* image */}
               <div className="overflow-hidden">
                 <img
@@ -50,7 +51,7 @@ const ForYou = () => {
                   ২ ঘণ্টা আগে
                 </span>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 import { entertainment } from "../../data/entertainment";
 
 const EntertainmentNews = () => {
@@ -47,8 +48,9 @@ const EntertainmentNews = () => {
           ========================================================= */}
           <div className="space-y-6">
             {leftNews.map((news, index) => (
-              <article
+              <Link
                 key={news.id}
+                to={`/news/entertainment/${news.id}`}
                 className={`flex items-start gap-4 ${
                   index !== leftNews.length - 1
                     ? "border-b border-black/10 pb-5"
@@ -80,44 +82,47 @@ const EntertainmentNews = () => {
                     className="h-full w-full object-cover"
                   />
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
 
           {/* =========================================================
               MIDDLE FEATURED BIG NEWS
           ========================================================= */}
-          <article className="border-black/10 xl:border-l xl:border-r xl:px-8">
-            <div className="overflow-hidden">
-              <img
-                src={featuredNews.img}
-                alt={featuredNews.title}
-                className="h-[320px] w-full object-cover lg:h-[360px]"
-              />
-            </div>
+          <Link to={`/news/entertainment/${featuredNews.id}`}>
+            <article className="border-black/10 xl:border-l xl:border-r xl:px-8">
+              <div className="overflow-hidden">
+                <img
+                  src={featuredNews.img}
+                  alt={featuredNews.title}
+                  className="h-[320px] w-full object-cover lg:h-[360px]"
+                />
+              </div>
 
-            <div className="pt-4">
-              <h3 className="text-[30px] font-bold leading-[1.35] text-[#111827]">
-                {featuredNews.title}
-              </h3>
+              <div className="pt-4">
+                <h3 className="text-[30px] font-bold leading-[1.35] text-[#111827]">
+                  {featuredNews.title}
+                </h3>
 
-              <p className="mt-4 line-clamp-2 text-[18px] leading-8 text-[#6b7280]">
-                {featuredNews.description}
-              </p>
+                <p className="mt-4 line-clamp-2 text-[18px] leading-8 text-[#6b7280]">
+                  {featuredNews.description}
+                </p>
 
-              <span className="mt-4 block text-[16px] text-[#6b7280]">
-                ৪৯ মিনিট আগে
-              </span>
-            </div>
-          </article>
+                <span className="mt-4 block text-[16px] text-[#6b7280]">
+                  ৪৯ মিনিট আগে
+                </span>
+              </div>
+            </article>
+          </Link>
 
           {/* =========================================================
               RIGHT COLUMN
           ========================================================= */}
           <div className="space-y-6">
             {rightNews.map((news, index) => (
-              <article
+              <Link
                 key={news.id}
+                to={`/news/entertainment/${news.id}`}
                 className={`flex items-start gap-4 ${
                   index !== rightNews.length - 1
                     ? "border-b border-black/10 pb-5"
@@ -149,7 +154,7 @@ const EntertainmentNews = () => {
                     className="h-full w-full object-cover"
                   />
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>

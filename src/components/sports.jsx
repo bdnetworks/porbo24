@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router'
 
 import { newsData } from '../data/newsData'
 
@@ -15,8 +16,9 @@ const tabConfig = {
 const RankedList = ({ items }) => (
   <div style={{ padding: '0 12px' }}>
     {items.map((item, i) => (
-      <div
+      <Link
         key={item.id}
+        to={`/news/news/${item.id}`}
         style={{
           display: 'flex',
           gap: 10,
@@ -41,13 +43,13 @@ const RankedList = ({ items }) => (
         <span style={{ fontSize: 19, color: '#222', lineHeight: 1.6, flex: 1 }}>
           {item.title}
         </span>
-      </div>
+      </Link>
     ))}
   </div>
 )
 
 const HeroCard = ({ item }) => (
-  <div style={{ position: 'relative', marginBottom: 12, cursor: 'pointer' }}>
+  <Link to={`/news/news/${item.id}`} style={{ position: 'relative', marginBottom: 12, cursor: 'pointer', display: 'block' }}>
     <img
       src={item.img}
       alt={item.title}
@@ -68,11 +70,11 @@ const HeroCard = ({ item }) => (
       </div>
       <div style={{ color: '#ccc', fontSize: 11, marginTop: 4 }}>{times[0]}</div>
     </div>
-  </div>
+  </Link>
 )
 
 const SubCard = ({ item, timeIndex }) => (
-  <div style={{ cursor: 'pointer' }}>
+  <Link to={`/news/news/${item.id}`} style={{ cursor: 'pointer', display: 'block' }}>
     <img
       src={item.img}
       alt={item.title}
@@ -84,11 +86,12 @@ const SubCard = ({ item, timeIndex }) => (
     <div style={{ fontSize: 11, color: '#888', marginTop: 3, padding: '0 2px' }}>
       {times[timeIndex]}
     </div>
-  </div>
+  </Link>
 )
 
 const RightCard = ({ item, isLive }) => (
-  <div
+  <Link
+    to={`/news/news/${item.id}`}
     style={{
       display: 'flex',
       gap: 8,
@@ -114,7 +117,7 @@ const RightCard = ({ item, isLive }) => (
       alt={item.title}
       style={{ width: 70, height: 52, objectFit: 'cover', flexShrink: 0 }}
     />
-  </div>
+  </Link>
 )
 
 const LiveDot = () => (
@@ -170,7 +173,7 @@ const Sports = () => {
         className="
           grid
           grid-cols-1
-          md:grid-cols-[240px_1fr]
+         
           xl:grid-cols-[240px_1fr_245px]
           border-t-2 border-[#07186b]
           max-w-[1230px]

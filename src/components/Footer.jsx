@@ -13,7 +13,7 @@ import { FaXTwitter } from "react-icons/fa6";
 const Footer = () => {
   return (
     <footer className="mt-16 bg-[#07186b] text-white">
-      <div className="mx-auto max-w-[1400px] px-5 py-14">
+      <div className="mx-auto max-w-[1300px] px-5 py-14">
 
         <div className="grid gap-12 lg:grid-cols-4">
 
@@ -21,7 +21,7 @@ const Footer = () => {
           <div className="lg:col-span-2">
        
           <div className="p-2 bg-white w-[120px] rounded-[1rem]">
-          <img src="./Logo.png" alt="porbo logo" />
+          <img src="/Logo.png" alt="porbo logo" />
           </div>
           
 

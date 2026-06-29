@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import {
   FaMapMarkerAlt,
   FaCalendarAlt,
@@ -7,29 +6,23 @@ import {
   FaBars,
   FaSearch,
   FaTimes,
-  
 } from "react-icons/fa";
 import { TbWorld } from "react-icons/tb";
-import { Link } from "react-router";
+import { Link,NavLink } from "react-router"; // Link ইমপোর্ট করা হয়েছে
+
 const categories = [
-  "হোম",
-  "সর্বশেষ",
-  "বাংলাদেশ",
-  "রাজনীতি",
-  "বিশ্ব",
-  "বাণিজ্য",
-  "মতামত",
-  "খেলা",
-  "বিনোদন",
-  "ভিডিও",
-  "সর্বশেষ",
-  "বাংলাদেশ",
-  "রাজনীতি",
-  "বিশ্ব",
-  "বাণিজ্য",
-  "মতামত",
-  "খেলা",
-  "বিনোদন",
+  { title: "হোম", path: "/" },
+  { title: "সর্বশেষ", path: "/latest" },
+  { title: "বাংলাদেশ", path: "/desh" },
+  { title: "রাজনীতি", path: "/desh/rajniti" },
+  { title: "বিশ্ব", path: "/international" },
+  { title: "বাণিজ্য", path: "/business" },
+  { title: "প্রযুক্তি", path: "/technology" },
+  { title: "মতামত", path: "/opinion" },
+  { title: "খেলা", path: "/sports" },
+  { title: "বিনোদন", path: "/entertainment" },
+  { title: "ভিডিও", path: "/video" },
+  { title: "আপনার জন্য", path: "/for-you" },
 ];
 
 export default function Navbar() {
@@ -38,7 +31,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsSticky(window.scrollY > 120);
+      setIsSticky(window.scrollY > 100);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -57,7 +50,6 @@ export default function Navbar() {
                 <FaMapMarkerAlt className="text-[14px]" />
                 <span>ঢাকা</span>
               </div>
-
               <div className="flex items-center gap-2">
                 <FaCalendarAlt className="text-[14px]" />
                 <span>বুধবার, ২৪ জুন, ২০২৬</span>
@@ -65,16 +57,15 @@ export default function Navbar() {
             </div>
 
             <div className="flex items-center gap-12 whitespace-nowrap">
-             <div className="flex items-center gap-2 whitespace-nowrap"> 
-              <FaRedoAlt className="text-[14px]" />
-              <span>আপডেট: ৫ মিনিট ১২ সেকেন্ড আগে</span>
+              <div className="flex items-center gap-2 whitespace-nowrap"> 
+                <FaRedoAlt className="text-[14px]" />
+                <span>আপডেট: ৫ মিনিট ১২ সেকেন্ড আগে</span>
               </div>
-              <a className="flex items-center justify-center gap-[5px] text-[1rem] border px-2 py-[0.5px] rounded-[0.5rem] hover:bg-[#fcd2d471] transition-all cursor-pointer ">
-                <TbWorld className="text-[1.2rem]"/> <span >Eng</span>
-                </a>
+              <a className="flex hidden items-center justify-center gap-[5px] text-[1rem] border px-2 py-[0.5px] rounded-[0.5rem] hover:bg-[#fcd2d471] transition-all cursor-pointer ">
+                <TbWorld className="text-[1.2rem]"/> <span>Eng</span>
+              </a>
             </div>
           </div>
-          
         </div>
 
         {/* ========== 2nd Line: Logo + Search + Hamburger ========== */}
@@ -87,11 +78,12 @@ export default function Navbar() {
         >
           <div className="mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-4">
             <div className="shrink-0">
-             <img src="./Logo.png" alt="porbo25-logo"  className="w-[5rem]"/>
+              
+                <img src="/Logo.png" alt="porbo25-logo" className="w-[5rem]"/>
+              
             </div>
-             {/* ads section only visible tab and big device */}
             <div className="hidden md:block">
-              <img src='./adsNav.png' alt="If ad's need call: 9617-888-807" className="w-[500px] max-sm:w-[350px]" />
+              <img src='/adsNav.png' alt="If ad's need call: 9617-888-807" className="w-[500px] max-sm:w-[350px]" />
             </div>
 
             <div className="flex flex-1 items-center justify-end gap-2 md:hidden">
@@ -116,44 +108,49 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* ========== 3rd Line: Category Menu (large screens only) ========== */}
+        {/* ========== 3rd Line: Category Menu (large screens) ========== */}
         <div className="hidden md:block bg-[#07186b] text-white">
           <div className="mx-auto max-w-[1280px] px-4">
-            <div className="flex items-center gap-3">
-              {/* Search + Hamburger (Only visible when sticky) */}
-             
-                <div className="hidden items-center gap-2 sm:flex shrink-0">
-                  <button
-                    type="button"
-                    onClick={() => setIsMenuOpen(true)}
-                    className="flex h-10 w-10 items-center justify-center rounded bg-white text-[#07186b] hover:bg-gray-200 transition-colors"
-                  >
-                    <FaBars />
-                  </button>
+            <div className="flex items-center justify-between gap-3">
+              <div className="hidden items-center gap-2 sm:flex shrink-0">
+                <button
+                  type="button"
+                  onClick={() => setIsMenuOpen(true)}
+                  className="flex h-10 w-10 items-center justify-center rounded bg-white text-[#07186b] hover:bg-gray-200 transition-colors"
+                >
+                  <FaBars />
+                </button>
 
-                  <div className="flex h-10 w-[200px] items-center overflow-hidden rounded border border-white bg-white">
-                    <input
-                      type="text"
-                      placeholder="Search..."
-                      className="h-full w-full px-3 text-sm text-gray-700 outline-none"
-                    />
-                    <button className="flex h-full w-10 items-center justify-center border-l border-gray-300 text-gray-700 hover:bg-gray-100 transition-colors">
-                      <FaSearch className="text-[12px]" />
-                    </button>
-                  </div>
+                <div className="flex h-10 w-[200px] items-center overflow-hidden rounded border border-white bg-white">
+                  <input
+                    type="text"
+                    placeholder="Search..."
+                    className="h-full w-full px-3 text-sm text-gray-700 outline-none"
+                  />
+                  <button className="flex h-full w-10 items-center justify-center border-l border-gray-300 text-gray-700 hover:bg-gray-100 transition-colors">
+                    <FaSearch className="text-[12px]" />
+                  </button>
                 </div>
-           
+              </div>
 
               {/* Categories */}
-              <div className="flex items-center overflow-x-auto whitespace-nowrap flex-1 thin-scrollbar">
+              <div className="flex items-center overflow-x-auto whitespace-nowrap thin-scrollbar">
                 {categories.map((item, index) => (
-                  <a
-                    key={`${item}-${index}`}
-                    href="#"
-                    className="flex-shrink-0 border-r border-white/40 px-3 py-3 text-[16px] font-medium first:pl-0 last:border-r-0 hover:text-gray-200 transition-colors"
+                 <NavLink
+                    key={`${item.path}-${index}`}
+                    to={item.path}
+                    // end প্রোপ্রার্টিটি দেওয়া হয়েছে যেন '/' পথটি সব পথের সাথে একটিভ না দেখায়
+                    end={item.path === "/"} 
+                    className={({ isActive }) =>
+                      `flex-shrink-0 border-r border-white/40 px-3 py-3 text-[16px] font-medium first:pl-2 last:border-r-0 transition-colors ${
+                        isActive
+                          ? "text-red-400 font-bold bg-[#051252] border-b-2 border-red-400" // একটিভ হলে হলুদ রঙ এবং হালকা ব্যাকগ্রাউন্ড হবে
+                          : "text-white hover:text-gray-200"
+                      }`
+                    }
                   >
-                    {item}
-                  </a>
+                    {item.title}
+                  </NavLink>
                 ))}
               </div>
             </div>
@@ -161,6 +158,7 @@ export default function Navbar() {
         </div>
       </header>
 
+      {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="fixed inset-0 z-50 flex items-stretch">
           <button
@@ -182,15 +180,15 @@ export default function Navbar() {
             </div>
             <div className="overflow-y-auto px-4 py-4 mt-16">
               <nav className="space-y-2">
-                {categories.map((item) => (
-                  <button
-                    key={item}
-                    type="button"
+                {categories.map((item, index) => (
+                  <Link
+                    key={index}
+                    to={item.path} // button এর বদলে Link ব্যবহার করা হয়েছে
                     onClick={() => setIsMenuOpen(false)}
-                    className="w-full  px-4 py-3 border-b border-gray-300 text-left text-base font-medium text-gray-800 hover:bg-gray-100"
+                    className="block w-full px-4 py-3 border-b border-gray-300 text-left text-base font-medium text-gray-800 hover:bg-gray-100"
                   >
-                    {item}
-                  </button>
+                    {item.title}
+                  </Link>
                 ))}
               </nav>
             </div>
