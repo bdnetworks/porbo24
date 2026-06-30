@@ -7,11 +7,12 @@ const TopGobutton = () => {
   // স্ক্রোল পজিশন চেক করার ফাংশন
   const toggleVisibility = () => {
     // window.innerHeight মানে হলো ১ vh বা সম্পূর্ণ স্ক্রিনের উচ্চতা
-    if (window.scrollY > window.innerHeight) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
+   // window.innerHeight এর বদলে নির্দিষ্ট পিক্সেল (যেমন: 300) দিন
+if (window.scrollY > 100) {
+  setIsVisible(true);
+} else {
+  setIsVisible(false);
+}
   };
 
   // একদম ওপরে স্ক্রোল করার ফাংশন
@@ -36,7 +37,7 @@ const TopGobutton = () => {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full
+          className="fixed bottom-18 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full
            bg-[#07186b] text-white shadow-lg transition-all duration-300 hover:scale-110 hover:bg-[#051252]"
           title="Go to Top"
         >
