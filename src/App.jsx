@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import CategoryPage from "./pages/CategoryPage";
 import NewsDetails from "./pages/NewsDetails";
 import LatestNews from "./components/newsCategories/LatestNews";
-import ApnerJonno from "./pages/apnerJonno";
+import ApnerJonno from "./pages/ApnerJonno";
 import AllVideo from "./pages/AllVideo";
 import ApnerOpnion from "./pages/ApnerOpnion";
 
