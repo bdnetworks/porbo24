@@ -112,3 +112,27 @@ article img:hover {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+
+
+/* social button css */
+.ytbtn,
+.fbbtn {
+  width: fit-content;
+}
+
+
+.fbname{
+  width: 0px;
+}
+.ytname{
+
+  width: 0px;
+}
+.ytbtn:hover .ytname{
+  width:60px
+} 
+
+.fbbtn:hover .fbname{
+    width:60px
+}

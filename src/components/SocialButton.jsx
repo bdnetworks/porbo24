@@ -9,11 +9,11 @@ const SocialButton = () => {
         href="https://youtube.com"
         target="_blank"
         rel="noopener noreferrer"
-        className="group flex items-center rounded-r-md bg-[#FF0000] p-3 text-white shadow-lg transition-all duration-300"
+        className="ytbtn flex items-center rounded-r-md bg-[#FF0000] p-3 text-white shadow-lg transition-all duration-300"
       >
         <FaYoutube className="min-w-[24px] text-xl" />
 
-        <span className="ml-0 max-w-0 overflow-hidden whitespace-nowrap text-sm font-semibold transition-all duration-300 group-hover:ml-3 group-hover:max-w-[100px]">
+        <span className="ytname ml-0  overflow-hidden whitespace-nowrap text-sm font-semibold transition-all duration-300 ">
           YouTube
         </span>
       </a>
@@ -23,11 +23,11 @@ const SocialButton = () => {
         href="https://facebook.com"
         target="_blank"
         rel="noopener noreferrer"
-        className="group flex items-center rounded-r-md bg-[#1877F2] p-3 text-white shadow-lg transition-all duration-300"
+        className="fbbtn flex items-center rounded-r-md bg-[#1877F2] p-3 text-white shadow-lg transition-all duration-300"
       >
         <FaFacebookF className="min-w-[24px] text-xl" />
 
-        <span className="ml-0 max-w-0 overflow-hidden whitespace-nowrap text-sm font-semibold transition-all duration-300 group-hover:ml-3 group-hover:max-w-[100px]">
+        <span className="fbname ml-0  overflow-hidden whitespace-nowrap text-sm font-semibold transition-all duration-300 ">
           Facebook
         </span>
       </a>
