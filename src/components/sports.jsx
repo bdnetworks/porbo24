@@ -23,7 +23,7 @@ const RankedList = ({ items }) => (
           display: 'flex',
           gap: 10,
           padding: '10px 0',
-          borderBottom: '1px solid #f0f0f0',
+          borderBottom: '1px solid var(--sports-soft-line)',
           alignItems: 'flex-start',
           cursor: 'pointer',
         }}
@@ -31,7 +31,7 @@ const RankedList = ({ items }) => (
         <span
           style={{
             fontSize: 22,
-            color: '#ccc',
+            color: 'var(--sports-rank)',
             fontWeight: 700,
             minWidth: 26,
             lineHeight: 1.1,
@@ -40,7 +40,7 @@ const RankedList = ({ items }) => (
         >
           {toBanglaNum(i + 1)}
         </span>
-        <span style={{ fontSize: 19, color: '#222', lineHeight: 1.6, flex: 1 }}>
+        <span style={{ fontSize: 19, color: 'var(--sports-text)', lineHeight: 1.6, flex: 1 }}>
           {item.title}
         </span>
       </Link>
@@ -80,10 +80,10 @@ const SubCard = ({ item, timeIndex }) => (
       alt={item.title}
       style={{ width: '100%', height: 130, objectFit: 'cover', display: 'block' }}
     />
-    <div style={{ fontSize: 17, color: '#222', lineHeight: 1.5, padding: '6px 2px 0', fontWeight: 600 }}>
+    <div style={{ fontSize: 17, color: 'var(--sports-text)', lineHeight: 1.5, padding: '6px 2px 0', fontWeight: 600 }}>
       {item.title}
     </div>
-    <div style={{ fontSize: 11, color: '#888', marginTop: 3, padding: '0 2px' }}>
+    <div style={{ fontSize: 11, color: 'var(--sports-muted)', marginTop: 3, padding: '0 2px' }}>
       {times[timeIndex]}
     </div>
   </Link>
@@ -96,7 +96,7 @@ const RightCard = ({ item, isLive }) => (
       display: 'flex',
       gap: 8,
       padding: '8px 0',
-      borderBottom: '1px solid #f0f0f0',
+      borderBottom: '1px solid var(--sports-soft-line)',
       alignItems: 'flex-start',
       cursor: 'pointer',
     }}
@@ -108,7 +108,7 @@ const RightCard = ({ item, isLive }) => (
           <span style={{ color: '#d0021b', fontSize: 10, fontWeight: 700 }}>সরাসরি</span>
         </div>
       )}
-      <div style={{ fontSize: 17, color: '#222', lineHeight: 1.5, fontWeight: 600 }}>
+      <div style={{ fontSize: 17, color: 'var(--sports-text)', lineHeight: 1.5, fontWeight: 600 }}>
         {item.title}
       </div>
     </div>
@@ -167,10 +167,28 @@ const Sports = () => {
         .rank-item:hover span:last-child { color: #d0021b; }
         .tab-btn { transition: color 0.2s, border-color 0.2s; }
         .tab-btn:hover { color: #d0021b !important; }
+        .sports-section {
+          --sports-heading: #111;
+          --sports-text: #222;
+          --sports-muted: #888;
+          --sports-rank: #ccc;
+          --sports-tab: #555;
+          --sports-line: #e0e0e0;
+          --sports-soft-line: #f0f0f0;
+        }
+        .dark .sports-section {
+          --sports-heading: #f8fafc;
+          --sports-text: #e5e7eb;
+          --sports-muted: #94a3b8;
+          --sports-rank: #64748b;
+          --sports-tab: #cbd5e1;
+          --sports-line: rgba(148, 163, 184, 0.36);
+          --sports-soft-line: rgba(148, 163, 184, 0.24);
+        }
       `}</style>
 
      <div
-        className="
+        className="sports-section
           grid
           grid-cols-1
          
@@ -183,7 +201,7 @@ const Sports = () => {
         "
       >
         {/* ── LEFT COLUMN ── */}
-        <div style={{ borderRight: '1px solid #e0e0e0', padding: '12px 0' }}>
+        <div style={{ borderRight: '1px solid var(--sports-line)', padding: '12px 0' }}>
           {/* Tab Bar */}
           <div
             style={{
@@ -206,7 +224,7 @@ const Sports = () => {
                   borderBottom: activeTab === key ? '2px solid #d0021b' : '2px solid transparent',
                   marginBottom: -2,
                   cursor: 'pointer',
-                  color: activeTab === key ? '#d0021b' : '#555',
+                  color: activeTab === key ? '#d0021b' : 'var(--sports-tab)',
                   fontWeight: activeTab === key ? 700 : 500,
                 }}
               >
@@ -220,7 +238,7 @@ const Sports = () => {
         </div>
 
         {/* ── CENTER COLUMN ── */}
-        <div style={{ padding: '12px 16px', borderRight: '1px solid #e0e0e0' }}>
+        <div style={{ padding: '12px 16px', borderRight: '1px solid var(--sports-line)' }}>
           {/* Section Header */}
           <div
             style={{
@@ -229,7 +247,7 @@ const Sports = () => {
               gap: 8,
               marginBottom: 12,
               paddingBottom: 8,
-              borderBottom: '1px solid #e0e0e0',
+              borderBottom: '1px solid var(--sports-line)',
             }}
           >
             <div

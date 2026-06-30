@@ -8,6 +8,7 @@ import {
   FaTimes,
 } from "react-icons/fa";
 import { TbWorld } from "react-icons/tb";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
 import { Link,NavLink } from "react-router"; // Link ইমপোর্ট করা হয়েছে
 
 const categories = [
@@ -28,6 +29,10 @@ const categories = [
 export default function Navbar() {
   const [isSticky, setIsSticky] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return localStorage.getItem("theme") === "dark";
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,13 +43,18 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", isDarkMode);
+    localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+  }, [isDarkMode]);
+
   return (
     <>
       {/* ================= HEADER ================= */}
-      <header className="sticky top-0 z-50 bg-white">
+      <header className="sticky top-0 z-50 bg-white transition-colors">
         {/* ========== 1st Line: Top Info Bar ========== */}
         <div className="bg-[#07186b] text-white ">
-          <div className="mx-auto flex max-sm:flex-wrap max-w-[1280px] items-center justify-between gap-2 px-4 py-2 text-sm">
+          <div className="mx-auto flex  max-w-[1280px] items-center justify-between gap-2 px-4 py-2 text-sm">
             <div className="flex flex-wrap items-center gap-4">
               <div className="flex items-center gap-2">
                 <FaMapMarkerAlt className="text-[14px]" />
@@ -54,16 +64,40 @@ export default function Navbar() {
                 <FaCalendarAlt className="text-[14px]" />
                 <span>বুধবার, ২৪ জুন, ২০২৬</span>
               </div>
-            </div>
 
-            <div className="flex items-center gap-12 whitespace-nowrap">
-              <div className="flex items-center gap-2 whitespace-nowrap"> 
+               <div className="flex items-center gap-2 whitespace-nowrap"> 
                 <FaRedoAlt className="text-[14px]" />
                 <span>আপডেট: ৫ মিনিট ১২ সেকেন্ড আগে</span>
               </div>
-              <a className="flex hidden items-center justify-center gap-[5px] text-[1rem] border px-2 py-[0.5px] rounded-[0.5rem] hover:bg-[#fcd2d471] transition-all cursor-pointer ">
+            </div>
+
+            <div className="flex items-center gap-12 whitespace-nowrap">
+             
+              
+               <div className="flex g gap-2">
+
+                <a className="flex  items-center justify-center gap-[5px] text-[1rem] bg-sky-800 px-2 py-[0.5px] rounded-[0.5rem] hover:bg-[#fcd2d471] transition-all cursor-pointer ">
                 <TbWorld className="text-[1.2rem]"/> <span>Eng</span>
               </a>
+             
+              {/* dark mode button */}
+              <button
+                type="button"
+                onClick={() => setIsDarkMode((prev) => !prev)}
+                aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
+                title={isDarkMode ? "Light mode" : "Dark mode"}
+                className="p-[0.4rem] bg-sky-800 rounded-[0.5rem] shadow-sm hover:bg-[#fcd2d471] transition-all"
+              >
+                {isDarkMode ? (
+                  <MdLightMode className="text-2xl"/>
+                ) : (
+                  <MdDarkMode className="text-2xl"/>
+                )}
+              </button>
+               </div>
+
+
+
             </div>
           </div>
         </div>

@@ -32,7 +32,7 @@ const HeroTopNews = () => {
   };
 
   return (
-    <section className="border-b border-[#0f766e] bg-[#fcd2d471]">
+    <section className="border-b border-[#0f766e] bg-[#fcd2d471] dark:border-slate-700 dark:bg-slate-900">
      
      {/* home page top banner */}
       <img src="./Hompagebanner.webp" alt="" />
@@ -43,14 +43,14 @@ const HeroTopNews = () => {
           {/* ================= LEFT: BIG TEXT NEWS ================= */}
           <Link
             to={`/news/news/${leadNews.id}`}
-            className="flex flex-col justify-between border-b border-black/10 pb-4 lg:border-b-0 lg:pb-0"
+            className="flex flex-col justify-between border-b border-black/10 pb-4 dark:border-slate-700 lg:border-b-0 lg:pb-0"
           >
             <div>
-              <h2 className="mb-4 text-[24px] font-bold leading-[1.45] text-[#111827]">
+              <h2 className="mb-4 text-[24px] font-bold leading-[1.45] text-[#111827] dark:text-slate-100">
                 {leadNews.title}
               </h2>
 
-              <p className="mb-8 text-[16px] leading-8 text-[#4b5563]">
+              <p className="mb-8 text-[16px] leading-8 text-[#4b5563] dark:text-slate-300">
                 {leadNews.description}
               </p>
             </div>
@@ -59,7 +59,7 @@ const HeroTopNews = () => {
           </Link>
 
           {/* ================= MIDDLE: BIG IMAGE ================= */}
-          <article className="border-b border-black/10 pb-4 lg:border-b-0  lg:border-r lg:border-black/10 lg:px-6 lg:pb-0">
+          <article className="border-b border-black/10 pb-4 dark:border-slate-700 lg:border-b-0  lg:border-r lg:border-black/10 lg:px-6 lg:pb-0">
             <img
               src={leadNews.img}
               alt={leadNews.title}
@@ -77,19 +77,19 @@ const HeroTopNews = () => {
                   key={news.id}
                   to={`/news/video/${news.id}`}
                   className={`flex items-start justify-between gap-4 ${
-                    index < 2 ? "border-b border-black/10 pb-6" : ""
+                    index < 2 ? "border-b border-black/10 pb-6 dark:border-slate-700" : ""
                   }`}
                 >
                   {/* left text */}
                   <div className="flex-1">
                     
-                    <h3 className="mb-2 text-[17px] font-bold leading-[1.45] text-[#111827]">
+                    <h3 className="mb-2 text-[17px] font-bold leading-[1.45] text-[#111827] dark:text-slate-100">
                       {shortTitle}
                       {isLong && "..."}
                     </h3>
 
                     <div>
-                      <span className="text-[15px] text-[#6b7280]">
+                      <span className="text-[15px] text-[#6b7280] dark:text-slate-400">
                         {news.publishedAt || "২ ঘণ্টা আগে"}
                       </span>
                     </div>

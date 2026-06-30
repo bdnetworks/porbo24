@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
 /* ================= Custom Bornomala Fonts ================= */
 @font-face {
   font-family: 'Bornomala';
@@ -48,6 +58,70 @@ button{
   cursor: pointer;
 }
 
+.dark body {
+  background-color: #283558;
+  color: #e5e7eb;
+}
+
+.dark .bg-white,
+.dark .bg-\[\#f5f5f5\] {
+  background-color: #101a30;
+}
+
+.dark footer .bg-white {
+  background-color: #ffffff;
+}
+
+.dark .bg-\[\#dceaf4\],
+.dark .bg-\[\#ececec\],
+.dark .bg-\[\#e5e7eb\],
+.dark .bg-\[\#d1d5db\],
+.dark .hover\:bg-gray-100:hover,
+.dark .hover\:bg-gray-50:hover,
+.dark .hover\:bg-gray-200:hover {
+  background-color: #1f2937;
+}
+
+.dark .text-\[\#111827\],
+.dark .text-\[\#1f1f1f\],
+.dark .text-\[\#161d2cfc\],
+.dark .text-\[\#1f2937\],
+.dark .text-\[\#374151\],
+.dark .text-\[\#222\],
+.dark .text-gray-700,
+.dark .text-gray-800,
+.dark .text-black {
+  color: #e5e7eb;
+}
+
+.dark .text-\[\#6b7280\],
+.dark .text-\[\#4b5563\],
+.dark .text-\[\#7b7b7b\],
+.dark .text-\[\#9ca3af\],
+.dark .text-gray-500,
+.dark .text-gray-600 {
+  color: #94a3b8;
+}
+
+.dark .border-gray-200,
+.dark .border-gray-300,
+.dark [class*="border-black"] {
+  border-color: rgba(148, 163, 184, 0.32);
+}
+
+.dark input,
+.dark textarea,
+.dark select {
+  background-color: #0f172a;
+  color: #e5e7eb;
+  border-color: #334155;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #94a3b8;
+}
+
 h1:hover,
 h2:hover,
 h3:hover,
@@ -65,6 +139,11 @@ article p:hover {
   color: #0f172a;
   background-color: rgba(14, 165, 233, 0.08);
   transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.dark article p:hover {
+  color: #e0f2fe;
+  background-color: rgba(14, 165, 233, 0.16);
 }
 
 article img {

@@ -4,10 +4,12 @@ import Footer from './components/Footer'
 import SocialButton from './components/SocialButton'
 import TopGobutton from './components/TopGobutton'
 import SubscribeBtn from './components/SubscribeBtn'
+import ScrollManager from './ScrollManager'
 
 const Layout = ({ children }) => {
   return (
     <div className="flex flex-col min-h-screen bg-[#f5f5f5]">
+      <ScrollManager/>
       {/* Header */}
       <Navbar />
       
