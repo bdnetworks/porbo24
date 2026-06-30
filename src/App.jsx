@@ -5,6 +5,10 @@ import Layout from "./Layout";
 import Home from "./pages/Home";
 import CategoryPage from "./pages/CategoryPage";
 import NewsDetails from "./pages/NewsDetails";
+import LatestNews from "./components/newsCategories/LatestNews";
+import ApnerJonno from "./pages/apnerJonno";
+import AllVideo from "./pages/AllVideo";
+import ApnerOpnion from "./pages/ApnerOpnion";
 
 // পরে এগুলো আলাদা page হবে
 const Latest = () => <CategoryPage />;
@@ -19,9 +23,10 @@ const App = () => {
         <Route path="/" element={<Home />} />
 
         {/* Special Pages */}
-        <Route path="/latest" element={<Latest />} />
-        <Route path="/video" element={<Video />} />
-        <Route path="/for-you" element={<ForYou />} />
+        <Route path="/latest" element={<LatestNews />} />
+        <Route path="/video" element={<AllVideo />} />
+        <Route path="/for-you" element={<ApnerJonno />} />
+        <Route path="/opinion" element={<ApnerOpnion/>}/>
 
         {/* Dynamic Category */}
         <Route path="/:category" element={<CategoryPage />} />

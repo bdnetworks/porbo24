@@ -474,4 +474,80 @@ export const newsData = [
     category: "international",
     subCategory : "esiya"
   },
+
+   
+  // banijjo
+
+
+  
+      {
+    id: 54,
+    title: "ব্যাংকিং খাতের সংস্কারে বিশ্বব্যাংকের বড় ফান্ড অনুমোদন",
+    description: "বাংলাদেশের ব্যাংকিং খাতের সার্বিক স্থিতিশীলতা রক্ষা এবং ক্ষুদ্র আমানতকারীদের সুরক্ষায় ৪৫০ মিলিয়ন ডলার ঋণ অনুমোদন করেছে বিশ্বব্যাংক।",
+    img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=500&q=80",
+    category: "economy",
+    subCategory : 'ancolik',
+  },
+  {
+    id: 55,
+    title: "জাতীয় মানবাধিকার কমিশন বিল ২০২৬ নিয়ে বিতর্ক",
+    description: "নতুন প্রস্তাবিত মানবাধিকার কমিশন বিলের বেশ কিছু ধারা স্বাধীন কার্যক্রমে বাধা সৃষ্টি করতে পারে বলে উদ্বেগ জানিয়েছে বিভিন্ন মানবাধিকার সংগঠন।",
+    img: "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=500&q=80",
+    category: "economy",
+    subCategory : 'ancolik',
+  },
+  {
+    id: 56,
+    title: "সারাদেশে বর্ষার তীব্রতা বৃদ্ধি, নদীগুলোর পানি বিপৎসীমার ওপরে",
+    description: "টানা কয়েকদিনের ভারী বর্ষণ ও পাহাড়ি ঢলে দেশের উত্তর ও পূর্বাঞ্চলের প্রধান নদীগুলোর পানি বৃদ্ধি পেয়ে নিম্নাঞ্চল প্লাবিত হয়েছে।",
+    img: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=500&q=80",
+    category: "economy",
+   subCategory : 'ancolik',
+  },
+  {
+    id: 57,
+    title: "ঢাকা-চট্টগ্রাম মহাসড়কে যানজট নিরসনে নতুন এক্সপ্রেসওয়ে প্রকল্প",
+    description: "যাত্রী ও পণ্য পরিবহন সহজ করতে ঢাকা-চট্টগ্রাম রুটে একটি নতুন চার লেনের এলিветеড এক্সপ্রেসওয়ে নির্মাণের খসড়া প্রস্তাব পাস হয়েছে।",
+    img: "https://images.unsplash.com/photo-1590674899484-d5640e854abe?auto=format&fit=crop&w=500&q=80",
+    category: "economy",
+    subCategory : 'ancolik',
+  },
+
+
+  
+      {
+    id: 58,
+    title: "ব্যাংকিং খাতের সংস্কারে বিশ্বব্যাংকের বড় ফান্ড অনুমোদন",
+    description: "বাংলাদেশের ব্যাংকিং খাতের সার্বিক স্থিতিশীলতা রক্ষা এবং ক্ষুদ্র আমানতকারীদের সুরক্ষায় ৪৫০ মিলিয়ন ডলার ঋণ অনুমোদন করেছে বিশ্বব্যাংক।",
+    img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=500&q=80",
+    category: "economy",
+    subCategory : 'ancolik',
+  },
+  {
+    id: 59,
+    title: "জাতীয় মানবাধিকার কমিশন বিল ২০২৬ নিয়ে বিতর্ক",
+    description: "নতুন প্রস্তাবিত মানবাধিকার কমিশন বিলের বেশ কিছু ধারা স্বাধীন কার্যক্রমে বাধা সৃষ্টি করতে পারে বলে উদ্বেগ জানিয়েছে বিভিন্ন মানবাধিকার সংগঠন।",
+    img: "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=500&q=80",
+    category: "economy",
+    subCategory : 'ancolik',
+  },
+  {
+    id: 60,
+    title: "সারাদেশে বর্ষার তীব্রতা বৃদ্ধি, নদীগুলোর পানি বিপৎসীমার ওপরে",
+    description: "টানা কয়েকদিনের ভারী বর্ষণ ও পাহাড়ি ঢলে দেশের উত্তর ও পূর্বাঞ্চলের প্রধান নদীগুলোর পানি বৃদ্ধি পেয়ে নিম্নাঞ্চল প্লাবিত হয়েছে।",
+    img: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=500&q=80",
+    category: "economy",
+   subCategory : 'ancolik',
+  },
+  {
+    id: 61,
+    title: "ঢাকা-চট্টগ্রাম মহাসড়কে যানজট নিরসনে নতুন এক্সপ্রেসওয়ে প্রকল্প",
+    description: "যাত্রী ও পণ্য পরিবহন সহজ করতে ঢাকা-চট্টগ্রাম রুটে একটি নতুন চার লেনের এলিветеড এক্সপ্রেসওয়ে নির্মাণের খসড়া প্রস্তাব পাস হয়েছে।",
+    img: "https://images.unsplash.com/photo-1590674899484-d5640e854abe?auto=format&fit=crop&w=500&q=80",
+    category: "economy",
+    subCategory : 'onnano',
+  },
+
+
+
 ];
