@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import SocialButton from './components/SocialButton'
 import TopGobutton from './components/TopGobutton'
+import SubscribeBtn from './components/SubscribeBtn'
 
 const Layout = ({ children }) => {
   return (
@@ -16,7 +17,7 @@ const Layout = ({ children }) => {
       <main className="flex-1 ">
         {children}
       </main>
-
+       <SubscribeBtn/>
       {/* Footer */}
       <Footer />
     </div>
