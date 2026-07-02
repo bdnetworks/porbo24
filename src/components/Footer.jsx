@@ -12,10 +12,10 @@ import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer className="mt-16 bg-[#07186b] text-white">
+    <footer className="mt-16 bg-black text-white">
       <div className="mx-auto max-w-[1300px] px-5 py-14">
 
-        <div className="grid gap-12 lg:grid-cols-4">
+        <div className="flex gap-8 max-md:flex-wrap md:justify-around max-md:justify-between justify-items-start">
 
           {/* Logo & About */}
           <div className="lg:col-span-2">
@@ -54,8 +54,10 @@ const Footer = () => {
             </div>
 
           </div>
-
-          {/* Contact */}
+               
+               {/* ........................... */}
+           <div className="flex gap-6 max-md:justify-between max-md:mt-8  max-md:w-[100%]">
+               {/* Contact */}
 
           <div>
 
@@ -151,6 +153,7 @@ const Footer = () => {
             </ul>
 
           </div>
+           </div>
 
         </div>
 

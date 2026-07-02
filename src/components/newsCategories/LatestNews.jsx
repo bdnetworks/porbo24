@@ -23,9 +23,9 @@ const LatestNews = () => {
        
        
         {
-            latesNews.map((news)=>(
+        latesNews.map((news)=>(
                 <article key={news.id}
-                className='w-[285px] max-xl:w-[300px] max-lg:w-[350px] max-md:w-[290px]'
+                className='w-[285px] border-b border-r border-black/10 pb-4 pr-4 max-xl:w-[300px] max-lg:w-[350px] max-md:w-[290px]'
                 >
                    <img src={news.img} alt={news.title}
                    className='w-[100%] h-[200px]'

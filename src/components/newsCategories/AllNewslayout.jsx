@@ -254,7 +254,7 @@ const ImageTopCard = ({ news }) => {
 ========================= */
 const TextOnlyCard = ({ news }) => {
   return (
-    <Link to={`/news/news/${news.id}`} className="block border-b border-black/10 pb-5">
+    <Link to={`/news/news/${news.id}`} className="block  pb-5">
       <NewsTitle
         title={news.title}
         wordLimit={8}
@@ -312,9 +312,9 @@ const AllNewsLayout = () => {
   const middleImage1 = allNews[9];
   const middleImage2 = allNews[10];
   const middleImage3 = allNews[11];
-  const middleText1 = allNews[12];
-  const middleText2 = allNews[13];
-  const middleText3 = allNews[14];
+  const middleImage4 = allNews[12];
+  const middleText1 = allNews[13];
+  const middleText2 = allNews[14];
 
   // ===== Right column =====
   const right1 = allNews[15];
@@ -369,14 +369,16 @@ const AllNewsLayout = () => {
               <ImageTopCard news={middleImage1} />
               <ImageTopCard news={middleImage2} />
               <ImageTopCard news={middleImage3} />
-               <TextOnlyCard news={middleText1} />
+              <ImageTopCard news={middleImage4} />
+               
             </div>
 
             {/* text cards row */}
             <div className="grid grid-cols-1 gap-5 border-t border-black/10 pt-5 md:grid-cols-2 lg:grid-cols-2">
-             
+              <div className="md:border-r md:border-black/10 md:pr-5">
+                <TextOnlyCard news={middleText1} />
+              </div>
               <TextOnlyCard news={middleText2} />
-              <TextOnlyCard news={middleText3} />
             </div>
           </div>
 

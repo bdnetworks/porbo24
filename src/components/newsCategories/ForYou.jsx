@@ -28,8 +28,16 @@ const ForYou = () => {
 
         {/* news grid */}
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
-          {apnerJonnoNews.map((news) => (
-            <Link key={news.id} to={`/news/entertainment/${news.id}`} className="block bg-white p-2">
+          {apnerJonnoNews.map((news, index) => (
+            <Link
+              key={news.id}
+              to={`/news/entertainment/${news.id}`}
+              className={`block bg-white pb-5 md:pb-0 md:pr-5 ${
+                index !== apnerJonnoNews.length - 1
+                  ? "border-b border-black/10 md:border-b-0 md:border-r"
+                  : ""
+              }`}
+            >
               {/* image */}
               <div className="overflow-hidden">
                 <img

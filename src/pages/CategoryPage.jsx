@@ -81,7 +81,7 @@ const CategoryPage = () => {
 
               <Link 
               to={`/news/news/${heroNews.id}`}
-              className="group relative overflow-hidden ">
+              className="group relative overflow-hidden border-b border-black/10 pb-5 lg:border-b-0 lg:border-r lg:pb-0 lg:pr-6">
                 <img
                   src={heroNews.img}
                   alt={heroNews.title}
@@ -105,7 +105,7 @@ const CategoryPage = () => {
 
               <Link 
               to={`/news/news/${sideNews.id}`}
-              className="overflow-hidden  ">
+              className="overflow-hidden border-b border-black/10 pb-5">
                 <img
                   src={sideNews.img}
                   alt={sideNews.title}
@@ -133,9 +133,9 @@ const CategoryPage = () => {
             <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {bottomNews.map((news) => (
                 <Link
-                to={`/news/news/${news.id}`}
-                  
-                  className="overflow-hidden "
+                  key={news.id}
+                  to={`/news/news/${news.id}`}
+                  className="overflow-hidden border-b border-r border-black/10 pb-4 pr-4"
                 >
                   <img
                     src={news.img}
@@ -166,8 +166,9 @@ const CategoryPage = () => {
                   <div className="mb-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                     {extraNews.map((news) => (
                       <Link
+                       key={news.id}
                        to={`/news/news/${news.id}`}
-                       className="overflow-hidden">
+                       className="overflow-hidden border-b border-r border-black/10 pb-4 pr-4">
                         <img
                           src={news.img}
                           alt={news.title}
@@ -223,8 +224,9 @@ const CategoryPage = () => {
           <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
             {(showAllOtherNews ? otherNews : otherNews.slice(0, 10)).map((news) => (
               <Link
+                key={news.id}
                 to={`/news/news/${news.id}`}
-                className="overflow-hidden   transition hover:-translate-y-1"
+                className="overflow-hidden border-b border-r border-black/10 pb-4 pr-4 transition hover:-translate-y-1"
               >
                 <img
                   src={news.img}

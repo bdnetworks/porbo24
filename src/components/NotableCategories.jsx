@@ -40,7 +40,7 @@ const NotableCategories = () => {
       behavior: "smooth",
     });
   };
-
+ 
   return (
     <section className="border-b border-black/10  py-4 mt-10">
       <div className="mx-auto flex items-center gap-4 px-2 lg:px-0">
@@ -53,7 +53,7 @@ const NotableCategories = () => {
         <div className="relative min-w-0 flex-1">
           <div
             ref={scrollRef}
-            className="scrollbar-hide flex gap-3 overflow-x-hidden scroll-smooth"
+            className="scrollbar-hide flex gap-3 overflow-x-auto overscroll-x-contain scroll-smooth"
           >
             {notableTopics.map((topic, index) => (
               <button

@@ -12,6 +12,7 @@ import { videoNewsData } from "../data/videoNewsData";
 import { entertainment } from "../data/entertainment";
 import { opinionData } from "../data/opinionaData";
 import { othersNewsData } from "../data/othersNewsData";
+import ImgdownloadBtn from "../components/ImgdownloadBtn";
 
 const NewsDetails = () => {
   const { source, id } = useParams();
@@ -151,9 +152,11 @@ const NewsDetails = () => {
           <img
             src={news.img}
             alt={news.title}
-            className="w-full h-[500px] object-cover rounded-lg mb-8"
+            className="w-full aspect-[1900/1000] object-cover mb-8"
           />
-
+          <div className="flex justify-center">
+            <ImgdownloadBtn news={news} />
+          </div>
           {/* Description */}
 
           <div className="space-y-5 text-lg leading-9 text-gray-700">
@@ -215,12 +218,12 @@ const NewsDetails = () => {
               <Link
                 key={item.id}
                 to={`/news/${source || "news"}/${item.id}`}
-                className="flex gap-3 border-b pb-3"
+                className="flex justify-between gap-4 border-b pb-3"
               >
                 <img
                   src={item.img}
                   alt={item.title}
-                  className="w-24 h-20 object-cover rounded"
+                  className="h-20 w-24 shrink-0 rounded object-cover"
                 />
 
                 <h3 className="text-sm font-medium line-clamp-3 hover:text-red-500">

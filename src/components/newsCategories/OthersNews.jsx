@@ -69,7 +69,7 @@ const OthersNews = () => {
                 </div>
 
                 {/* first / featured news */}
-                <Link to={`/news/others/${firstNews.id}`} className="group mb-5 block">
+                <Link to={`/news/others/${firstNews.id}`} className="group mb-5 block border-b border-black/10 pb-5">
                   <div className="overflow-hidden">
                     <img
                       src={firstNews.img}
@@ -93,7 +93,7 @@ const OthersNews = () => {
                     <Link
                       key={news.id}
                       to={`/news/others/${news.id}`}
-                      className="group block"
+                      className="group block border-t border-black/10 pt-4 first:border-t-0 first:pt-0"
                     >
                       {renderTitle(
                         news.title,

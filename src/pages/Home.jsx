@@ -16,12 +16,12 @@ const Home = () => {
     <div className='max-w-[1280px] min-h-[100vh] mx-auto px-4 py-6'>
       <BreakingNews/>
      <Hero/>
+     <VideoNews/>
      <NotableCategories/>
      <Sports/>
      <DeshSection/>
      <InternationalNews/>
      <EntertainmentNews/>
-     <VideoNews/>
      <OpinionNews/>
      <ForYou/>
      <OthersNews/>

@@ -66,7 +66,7 @@ const VideoNews = () => {
             <Link
               key={video.id}
               to={`/news/video/${video.id}`}
-              className="min-w-[300px] max-w-[300px] flex-shrink-0 bg-white sm:min-w-[360px] sm:max-w-[360px] lg:min-w-[380px] lg:max-w-[380px]"
+              className="min-w-[300px] max-w-[300px] flex-shrink-0 border-r border-black/10 bg-white pr-6 sm:min-w-[360px] sm:max-w-[360px] lg:min-w-[380px] lg:max-w-[380px]"
             >
               {/* thumbnail */}
               <div className="group relative overflow-hidden">

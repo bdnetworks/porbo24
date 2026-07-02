@@ -34,7 +34,7 @@ const AllVideo = () => {
             <Link
               key={video.id}
               to={`/news/video/${video.id}`}
-              className="w-full bg-white"
+              className="w-full border-b border-r border-black/10 bg-white pb-5 pr-5"
             >
               {/* thumbnail */}
               <div className="group relative overflow-hidden">

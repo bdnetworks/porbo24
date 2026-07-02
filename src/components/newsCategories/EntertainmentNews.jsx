@@ -90,7 +90,7 @@ const EntertainmentNews = () => {
               MIDDLE FEATURED BIG NEWS
           ========================================================= */}
           <Link to={`/news/entertainment/${featuredNews.id}`}>
-            <article className="border-black/10 xl:border-l xl:border-r xl:px-8">
+            <article className="border-b border-black/10 pb-5 xl:border-b-0 xl:border-l xl:border-r xl:px-8">
               <div className="overflow-hidden">
                 <img
                   src={featuredNews.img}

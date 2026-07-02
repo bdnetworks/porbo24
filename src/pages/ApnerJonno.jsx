@@ -29,7 +29,7 @@ const ApnerJonno = () => {
         {/* news grid */}
         <div className="grid grid-cols-1 gap-8 max-xl:gap-6 md:grid-cols-4">
           {apnerJonnoNews.map((news) => (
-            <Link key={news.id} to={`/news/entertainment/${news.id}`} className="block  p-2">
+            <Link key={news.id} to={`/news/entertainment/${news.id}`} className="block border-b border-r border-black/10 pb-5 pr-5">
               {/* image */}
               <div className="overflow-hidden">
                 <img

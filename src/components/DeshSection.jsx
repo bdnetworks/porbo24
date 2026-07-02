@@ -165,17 +165,17 @@ const DeshSection = () => {
         </div>
 
         {/* ===================== Main News Grid ===================== */}
-        <div className="grid grid-cols-1 gap-8 xl:grid-cols-[1.1fr_1.15fr_0.75fr]">
+        <div className="grid grid-cols-1 gap-8 xl:grid-cols-[1fr_1.2fr_1fr]">
           {/* =========================================================
               LEFT COLUMN - Featured big news
           ========================================================= */}
           <Link to={`/news/news/${featuredNews.id}`}>
-            <article>
+            <article className="border-b border-black/10 pb-5 xl:border-b-0 xl:border-r xl:pr-6">
               <div className="mb-4 overflow-hidden">
                 <img
                   src={featuredNews.img}
                   alt={featuredNews.title}
-                  className="h-[420px] w-full object-cover"
+                  className="h-[400px] w-full object-cover"
                 />
               </div>
 
@@ -262,7 +262,7 @@ const DeshSection = () => {
                   </span>
                 </div>
 
-                <div className="h-[110px] w-[150px] max-sm:w-[120px] shrink-0 overflow-hidden">
+                <div className="h-[170px] w-[220px] max-sm:w-[120px] shrink-0 overflow-hidden">
                   <img
                     src={news.img}
                     alt={news.title}

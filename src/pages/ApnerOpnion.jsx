@@ -115,7 +115,7 @@ const ApnerOpnion = () => {
 
        {/* comment box */}
       <div className="mt-18">
-         <b className="underline decoration-2 underline-offset-6 text-[1.4rem] ml-4 ">Write your own opnion</b>
+         <b className="underline decoration-2 underline-offset-6 text-[1.4rem] ml-4 ">আপনার মতামত লিখুন</b>
         <div className="my-2 p-6 py-8 border-2 border-gray-300 rounded-[1rem]">
           
           <form className="flex flex-col gap-4"
@@ -127,7 +127,7 @@ const ApnerOpnion = () => {
 
             </textarea>
              <button className="bg-[#07186b] w-[200px] p-3 text-white rounded-[0.7rem]" 
-              type="submit">Done</button>
+              type="submit">জমা দিন</button>
           </form>
 
         </div>

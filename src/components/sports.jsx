@@ -49,7 +49,17 @@ const RankedList = ({ items }) => (
 )
 
 const HeroCard = ({ item }) => (
-  <Link to={`/news/news/${item.id}`} style={{ position: 'relative', marginBottom: 12, cursor: 'pointer', display: 'block' }}>
+  <Link
+    to={`/news/news/${item.id}`}
+    style={{
+      position: 'relative',
+      marginBottom: 12,
+      cursor: 'pointer',
+      display: 'block',
+      borderBottom: '1px solid var(--sports-soft-line)',
+      paddingBottom: 12,
+    }}
+  >
     <img
       src={item.img}
       alt={item.title}
@@ -74,7 +84,15 @@ const HeroCard = ({ item }) => (
 )
 
 const SubCard = ({ item, timeIndex }) => (
-  <Link to={`/news/news/${item.id}`} style={{ cursor: 'pointer', display: 'block' }}>
+  <Link
+    to={`/news/news/${item.id}`}
+    style={{
+      cursor: 'pointer',
+      display: 'block',
+      borderRight: '1px solid var(--sports-soft-line)',
+      paddingRight: 8,
+    }}
+  >
     <img
       src={item.img}
       alt={item.title}
@@ -105,7 +123,7 @@ const RightCard = ({ item, isLive }) => (
       {isLive && (
         <div style={{ display: 'flex', alignItems: 'center', gap: 4, marginBottom: 3 }}>
           <LiveDot />
-          <span style={{ color: '#d0021b', fontSize: 10, fontWeight: 700 }}>সরাসরি</span>
+          <span style={{ color: '#d0021b', fontSize: 13, fontWeight: 700 }}>সরাসরি</span>
         </div>
       )}
       <div style={{ fontSize: 17, color: 'var(--sports-text)', lineHeight: 1.5, fontWeight: 600 }}>
