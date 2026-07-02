@@ -61,6 +61,24 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+
+  .mobile-category-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(7, 24, 107, 0.45) transparent;
+  }
+
+  .mobile-category-scroll::-webkit-scrollbar {
+    height: 2px;
+  }
+
+  .mobile-category-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .mobile-category-scroll::-webkit-scrollbar-thumb {
+    background: rgba(7, 24, 107, 0.45);
+    border-radius: 9999px;
+  }
 }
 
 button{

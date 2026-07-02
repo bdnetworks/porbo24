@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa";
 import { TbWorld } from "react-icons/tb";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
+import { FaUser } from "react-icons/fa";
 import { Link,NavLink } from "react-router"; // Link ইমপোর্ট করা হয়েছে
 
 const categories = [
@@ -29,6 +30,7 @@ const categories = [
 export default function Navbar() {
   const [isSticky, setIsSticky] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(() => {
     if (typeof window === "undefined") return false;
     return localStorage.getItem("theme") === "dark";
@@ -54,8 +56,8 @@ export default function Navbar() {
       <header className="sticky top-0 z-50 bg-white transition-colors">
         {/* ========== 1st Line: Top Info Bar ========== */}
         <div className="bg-[#07186b] text-white ">
-          <div className="mx-auto flex  max-w-[1280px] items-center justify-between gap-2 px-4 py-2 text-sm">
-            <div className="flex flex-wrap items-center gap-4">
+          <div className="mx-auto flex  max-w-[1280px] items-center justify-between gap-2 px-4 max-sm:px-2 py-2 text-sm">
+            <div className="flex flex-wrap items-center gap-4 max-sm:gap-2">
               <div className="flex items-center gap-2">
                 <FaMapMarkerAlt className="text-[14px]" />
                 <span>ঢাকা</span>
@@ -74,10 +76,13 @@ export default function Navbar() {
             <div className="flex items-center gap-12 whitespace-nowrap">
              
               
-               <div className="flex g gap-2">
+               <div className="flex  gap-2">
+                <a className="flex  items-center justify-center gap-[5px] text-[1rem] bg-sky-800 px-2 py-[0.5px] rounded-[0.5rem] hover:bg-[#fcd2d471] transition-all cursor-pointer ">
+                <FaUser title="login" className="text-[1.2rem]"/> 
+              </a>
 
                 <a className="flex  items-center justify-center gap-[5px] text-[1rem] bg-sky-800 px-2 py-[0.5px] rounded-[0.5rem] hover:bg-[#fcd2d471] transition-all cursor-pointer ">
-                <TbWorld className="text-[1.2rem]"/> <span>Eng</span>
+                <TbWorld title="ENG" className="text-[1.2rem]"/> <span className="max-sm:hidden">Eng</span>
               </a>
              
               {/* dark mode button */}
@@ -86,7 +91,7 @@ export default function Navbar() {
                 onClick={() => setIsDarkMode((prev) => !prev)}
                 aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
                 title={isDarkMode ? "Light mode" : "Dark mode"}
-                className="p-[0.4rem] bg-sky-800 rounded-[0.5rem] shadow-sm hover:bg-[#fcd2d471] transition-all"
+                className="p-[0.4rem]  bg-sky-800 rounded-[0.5rem] shadow-sm hover:bg-[#fcd2d471] transition-all"
               >
                 {isDarkMode ? (
                   <MdLightMode className="text-2xl"/>
@@ -104,41 +109,85 @@ export default function Navbar() {
 
         {/* ========== 2nd Line: Logo + Search + Hamburger ========== */}
         <div
-          className={`border-b border-gray-200 bg-white transition-all duration-300 overflow-hidden ${
+          className={`border-b border-gray-200 bg-white transition-all duration-300 md:overflow-hidden ${
             isSticky
-              ? "max-h-[150px] py-2 opacity-100 md:max-h-0 md:py-0 md:opacity-0"
-              : "max-h-[100px] py-2 opacity-100"
+              ? "max-h-[150px] py-2 max-sm:py-[0.2rem] opacity-100 md:max-h-0 md:py-0 md:opacity-0"
+              : "max-h-[100px] py-2 max-sm:py-[0.2rem] opacity-100"
           }`}
         >
-          <div className="mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-4">
-            <div className="shrink-0">
-              
-                <img src="/Logo.png" alt="porbo25-logo" className="w-[5rem]"/>
-              
-            </div>
+          <div className="relative mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-4 max-sm:px-2">
+            <Link to="/" className="shrink-0 max-sm:-ml-1" aria-label="Go to home">
+              <img
+                src="/Logo.png"
+                alt="porbo25-logo"
+                className="w-[5rem] max-sm:w-[4rem]"
+              />
+            </Link>
             <div className="hidden md:block">
               <img src='/adsNav.png' alt="If ad's need call: 9617-888-807" className="w-[500px] max-sm:w-[350px]" />
             </div>
 
-            <div className="flex flex-1 items-center justify-end gap-2 md:hidden">
-              <div className="flex h-10 w-full max-w-[220px] items-center overflow-hidden rounded border border-gray-300 bg-white">
-                <input
-                  type="text"
-                  placeholder="Search..."
-                  className="h-full w-full px-3 text-sm text-gray-700 outline-none"
-                />
-                <button className="flex h-full w-10 items-center justify-center border-l border-gray-300 text-gray-700 hover:bg-gray-100 transition-colors">
-                  <FaSearch className="text-[12px]" />
-                </button>
+            <div className="flex min-w-0 flex-1 items-center justify-end gap-2 md:hidden">
+              <div className="mobile-category-scroll flex min-w-0 flex-1 items-center overflow-x-auto whitespace-nowrap pb-1">
+                {categories.map((item, index) => (
+                  <NavLink
+                    key={`${item.path}-mobile-${index}`}
+                    to={item.path}
+                    end={item.path === "/"}
+                    className={({ isActive }) =>
+                      `flex-shrink-0 px-2 py-2 text-[14px] font-medium transition-colors ${
+                        isActive
+                          ? "text-red-500 font-bold"
+                          : "text-[#455dd3] hover:text-red-500"
+                      }`
+                    }
+                  >
+                    {item.title}
+                  </NavLink>
+                ))}
               </div>
+
+              <button
+                type="button"
+                aria-label={isMobileSearchOpen ? "Hide search" : "Search"}
+                onClick={() => setIsMobileSearchOpen((current) => !current)}
+                className="flex h-10 w-8 shrink-0 items-center justify-center rounded border border-gray-300 bg-white text-gray-700 transition-colors hover:bg-gray-100"
+              >
+                {isMobileSearchOpen ? (
+                  <FaTimes className="text-[14px]" />
+                ) : (
+                  <FaSearch className="text-[14px]" />
+                )}
+              </button>
+
               <button
                 type="button"
                 onClick={() => setIsMenuOpen(true)}
-                className="flex h-10 w-10 items-center justify-center rounded bg-[#07186b] text-white hover:bg-[#0a1f5e] transition-colors"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded bg-[#07186b] text-white hover:bg-[#0a1f5e] transition-colors"
               >
                 <FaBars />
               </button>
             </div>
+
+            {isMobileSearchOpen && (
+              <div className="absolute left-2 right-2 top-full z-50 mt-2 md:hidden">
+                <div className="flex h-11 items-center overflow-hidden rounded border border-gray-300 bg-white shadow-xl">
+                  <input
+                    type="text"
+                    placeholder="Search..."
+                    autoFocus
+                    className="h-full w-full px-3 text-sm text-gray-700 outline-none"
+                  />
+                  <button
+                    type="button"
+                    aria-label="Submit search"
+                    className="flex h-full w-11 items-center justify-center border-l border-gray-300 text-gray-700 transition-colors hover:bg-gray-100"
+                  >
+                    <FaSearch className="text-[13px]" />
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
