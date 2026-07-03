@@ -5,7 +5,7 @@ import { opinionData } from "../data/opinionaData";
 
 const ApnerOpnion = () => {
   const featuredNews = opinionData[0];
-  const sideNews = opinionData.slice(1, 5);
+  const sideNews = opinionData
 
   const renderTitle = (title, limit = 7, className = "") => {
     const words = title.split(" ");
@@ -32,7 +32,7 @@ const ApnerOpnion = () => {
         {/* =================== Main Layout =================== */}
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[460px_1fr]">
           {/* ================= LEFT FEATURED CARD ================= */}
-          <Link to={`/news/opinion/${featuredNews.id}`} className="block border border-black/20 bg-white px-8 py-8">
+          <article className="block border border-black/20 bg-white px-8 py-8">
             {/* top title blocks */}
             <div className="mb-8">
               <div className="inline-block bg-[#001b5e] px-4 py-2 text-[20px] font-bold leading-tight text-[#ffcc00]">
@@ -54,15 +54,14 @@ const ApnerOpnion = () => {
               <span className="font-semibold">লেখা:</span>{" "}
               <span className="text-[#6b7280]">{featuredNews.author}</span>
             </p>
-          </Link>
+          </article>
 
           {/* ================= RIGHT LIST ================= */}
-          <div className="flex flex-col">
+          <div className="flex flex-col max-h-[100vh] overflow-y-scroll cursor-all-scroll">
             {sideNews.map((item, index) => (
-              <Link
+              <article
                 key={item.id}
-                to={`/news/opinion/${item.id}`}
-                className={`flex gap-6 py-6 ${
+                className={`flex gap-6 py-6  ${
                   index !== sideNews.length - 1 ? "border-b border-black/15" : ""
                 }`}
               >
@@ -108,7 +107,7 @@ const ApnerOpnion = () => {
                     <span className="text-[#6b7280]">{item.author}</span>
                   </p>
                 </div>
-              </Link>
+              </article>
             ))}
           </div>
         </div>

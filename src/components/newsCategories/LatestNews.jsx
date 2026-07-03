@@ -1,6 +1,7 @@
 
 import React from 'react'
 import { newsData } from '../../data/newsData'
+import { Link } from 'react-router'
 
 const latesNews = newsData.slice(0, 15)
 const setTime = new Date()
@@ -24,7 +25,8 @@ const LatestNews = () => {
        
         {
         latesNews.map((news)=>(
-                <article key={news.id}
+                <Link key={news.id}
+                to={`/news/news/${news.id}`}
                 className='w-[285px] border-b border-r border-black/10 pb-4 pr-4 max-xl:w-[300px] max-lg:w-[350px] max-md:w-[290px]'
                 >
                    <img src={news.img} alt={news.title}
@@ -34,7 +36,7 @@ const LatestNews = () => {
                    <p className='line-clamp-3'>{news.description}</p>
                     
                     <h2 className='mt-4 font-bold underline'>29/6/2026 Time 2:30 PM</h2>
-                </article>
+                </Link>
             ))
         }
 

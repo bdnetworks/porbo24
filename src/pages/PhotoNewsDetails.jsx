@@ -1,0 +1,138 @@
+import React from "react";
+import { Link, useParams } from "react-router";
+import { FaFacebookF, FaShareAlt, FaYoutube } from "react-icons/fa";
+import { photoData } from "../data/photoData";
+
+const PUBLISH_TIME = "প্রকাশ: ৩ জুলাই ২০২৬, ১২:০০";
+
+const PhotoNewsDetails = () => {
+  const { id } = useParams();
+  const targetId = Number(id);
+  const news = photoData.find((item) => item.id === targetId);
+
+  if (!news) {
+    return (
+      <div className="mx-auto max-w-[1280px] px-4 py-20 text-center">
+        <h1 className="text-2xl font-bold text-gray-800">Photo News Not Found</h1>
+        <Link
+          to="/"
+          className="mt-5 inline-flex rounded bg-[#07186b] px-5 py-2 font-semibold text-white"
+        >
+          হোমে ফিরুন
+        </Link>
+      </div>
+    );
+  }
+
+  const morePhotoNews = photoData.filter((item) => item.id !== news.id).slice(0, 6);
+
+  return (
+    <main className="mx-auto max-w-[1280px] px-4 py-8">
+      <div className="mb-8 text-sm">
+        <Link to="/" className="text-blue-600">
+          Home
+        </Link>
+
+        <span className="mx-2">{">"}</span>
+
+        <span>ছবি</span>
+
+        <span className="mx-2">{">"}</span>
+
+        <span className="font-semibold">{news.title}</span>
+      </div>
+
+      <div className="mx-auto max-w-[820px]">
+        <h1 className="text-3xl font-bold leading-tight text-[#111827] md:text-4xl">
+          {news.title}
+        </h1>
+
+        <p className="mt-5 text-lg leading-9 text-gray-700">
+          {news.mainDescription}
+        </p>
+
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-b border-gray-300 pb-6">
+          <p className="text-sm font-medium text-gray-500">{PUBLISH_TIME}</p>
+
+          <div className="flex gap-3 text-lg">
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+              className="border px-6 py-2 shadow-sm border-white rounded-[0.8rem] cursor-pointer"
+            >
+              <FaYoutube className="cursor-pointer hover:text-red-600" />
+            </a>
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="border px-6 py-2 shadow-sm border-white rounded-[0.8rem] cursor-pointer"
+            >
+              <FaFacebookF className="cursor-pointer hover:text-blue-600" />
+            </a>
+            <button
+              type="button"
+              aria-label="Share"
+              className="border px-6 py-2 shadow-sm border-white rounded-[0.8rem] cursor-pointer"
+            >
+              <FaShareAlt className="cursor-pointer" />
+            </button>
+          </div>
+        </div>
+
+        <div className="mt-8 space-y-8">
+          {news.imagesWithDesc?.map((imageItem, index) => (
+            <figure key={`${imageItem.img}-${index}`}>
+              <img
+                src={imageItem.img}
+                alt={imageItem.shortDesc}
+                className="aspect-[16/9] max-h-[460px] w-full rounded object-cover shadow-sm"
+              />
+              <figcaption className="mt-3 border-l-4 border-[#07186b] pl-4 text-base leading-8 text-gray-700">
+                {imageItem.shortDesc}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+
+      <section className="mt-14 border-t border-gray-200 pt-8">
+        <div className="mb-6 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-[#111827]">আরও ফটো নিউজ</h2>
+          <span className="text-3xl font-light text-[#304bd1]">›</span>
+        </div>
+
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {morePhotoNews.map((item) => {
+            const firstImage = item.imagesWithDesc?.[0]?.img;
+
+            return (
+              <Link
+                key={item.id}
+                to={`/photo-news/${item.id}`}
+                className="group overflow-hidden border-b border-gray-200 pb-4"
+              >
+                <img
+                  src={firstImage}
+                  alt={item.title}
+                  className="aspect-[16/10] w-full rounded object-cover"
+                />
+                <h3 className="mt-3 line-clamp-2 text-lg font-bold leading-7 text-gray-800 transition group-hover:text-red-600">
+                  {item.title}
+                </h3>
+                <p className="mt-2 line-clamp-2 text-sm leading-6 text-gray-500">
+                  {item.mainDescription}
+                </p>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+    </main>
+  );
+};
+
+export default PhotoNewsDetails;

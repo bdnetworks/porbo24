@@ -43,4 +43,21 @@ export const opinionData = [
       "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=300&q=80",
     label: "মতামত",
   },
+   {
+    id: 6,
+    title: "গঙ্গা চুক্তি নবায়নে বাংলাদেশ কীভাবে প্রস্তুত হতে পারে",
+    description: "",
+    author: "নওরোজ ইসলাম",
+    authorImage:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80",
+    label: "মতামত-বিশ্লেষণ",
+  },
+   {
+    id: 7,
+    title: "এমপির ছেলেকে পুলিশ ছাড়ল কোন আইনে",
+    description: "",
+    author: "শামস নাজির",
+    authorImage: "",
+    label: "মতামত",
+  },
 ];

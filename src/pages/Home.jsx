@@ -10,6 +10,7 @@ import VideoNews from '../components/newsCategories/VideoNews'
 import OpinionNews from '../components/newsCategories/OpinionNews'
 import ForYou from '../components/newsCategories/ForYou'
 import OthersNews from '../components/newsCategories/OthersNews'
+import PhotoNews from '../components/PhotoNews'
 
 const Home = () => {
   return (
@@ -23,6 +24,7 @@ const Home = () => {
      <InternationalNews/>
      <EntertainmentNews/>
      <OpinionNews/>
+     <PhotoNews/>
      <ForYou/>
      <OthersNews/>
     </div>

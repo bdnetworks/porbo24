@@ -9,6 +9,7 @@ import LatestNews from "./components/newsCategories/LatestNews";
 import ApnerJonno from "./pages/ApnerJonno";
 import AllVideo from "./pages/AllVideo";
 import ApnerOpnion from "./pages/ApnerOpnion";
+import PhotoNewsDetails from "./pages/PhotoNewsDetails";
 
 // পরে এগুলো আলাদা page হবে
 const Latest = () => <CategoryPage />;
@@ -27,6 +28,7 @@ const App = () => {
         <Route path="/video" element={<AllVideo />} />
         <Route path="/for-you" element={<ApnerJonno />} />
         <Route path="/opinion" element={<ApnerOpnion/>}/>
+        <Route path="/photo-news/:id" element={<PhotoNewsDetails />} />
 
         {/* Dynamic Category */}
         <Route path="/:category" element={<CategoryPage />} />

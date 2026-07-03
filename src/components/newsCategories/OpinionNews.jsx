@@ -23,16 +23,16 @@ const OpinionNews = () => {
   return (
     <section className="bg-white py-8 mt-10">
       <div className="mx-auto max-w-[1500px] px-4 lg:px-6">
-        {/* =================== Section Header =================== */}
-        <div className="mb-8 flex items-center gap-3 border-t-4 border-black/35 pt-4">
-          <h2 className="text-[32px] font-bold text-[#111827]">মতামত</h2>
-          <FiChevronRight className="text-[30px] text-red-600" />
+         {/* ===================== Section Header ===================== */}
+        <div className="mb-6 flex items-center gap-3 border-t-4 border-black pt-4">
+          <h2 className="text-[28px] font-bold text-[#111827]">মতামত</h2>
+          <span className="text-[30px] font-light text-[#07186b]">›</span>
         </div>
 
         {/* =================== Main Layout =================== */}
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[460px_1fr]">
           {/* ================= LEFT FEATURED CARD ================= */}
-          <Link to={`/news/opinion/${featuredNews.id}`} className="block border border-black/20 bg-white px-8 py-8">
+          <article className="block border border-black/20 bg-white px-8 py-8">
             {/* top title blocks */}
             <div className="mb-8">
               <div className="inline-block bg-[#001b5e] px-4 py-2 text-[20px] font-bold leading-tight text-[#ffcc00]">
@@ -54,14 +54,14 @@ const OpinionNews = () => {
               <span className="font-semibold">লেখা:</span>{" "}
               <span className="text-[#6b7280]">{featuredNews.author}</span>
             </p>
-          </Link>
+          </article>
 
           {/* ================= RIGHT LIST ================= */}
           <div className="flex flex-col">
             {sideNews.map((item, index) => (
-              <Link
+              <article
                 key={item.id}
-                to={`/news/opinion/${item.id}`}
+            
                 className={`flex gap-6 py-6 ${
                   index !== sideNews.length - 1 ? "border-b border-black/15" : ""
                 }`}
@@ -108,7 +108,7 @@ const OpinionNews = () => {
                     <span className="text-[#6b7280]">{item.author}</span>
                   </p>
                 </div>
-              </Link>
+              </article>
             ))}
           </div>
         </div>
