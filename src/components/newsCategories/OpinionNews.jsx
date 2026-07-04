@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router";
 import { FiChevronRight, FiEdit3 } from "react-icons/fi";
 import { opinionData } from "../../data/opinionaData";
 
 const OpinionNews = () => {
-  const featuredNews = opinionData[0];
+  const [selectedNews, setSelectedNews] = useState(opinionData[0]);
   const sideNews = opinionData.slice(1, 5);
+  const selectedDescription =
+    selectedNews.description || opinionData[0]?.description || selectedNews.title;
 
   const renderTitle = (title, limit = 7, className = "") => {
     const words = title.split(" ");
@@ -37,13 +39,13 @@ const OpinionNews = () => {
             <div className="mb-8">
               <div className="inline-block bg-[#001b5e] px-4 py-2 text-[20px] font-bold leading-tight text-[#ffcc00]">
                 মতামত <span className="text-[#ffcc00]">•</span>{" "}
-                <span className="text-white">{featuredNews.title}</span>
+                <span className="text-white">{selectedNews.title}</span>
               </div>
             </div>
 
             {/* description */}
             <p className="mb-14 max-w-[290px] text-[18px] leading-10 text-[#4b5563]">
-              {featuredNews.description}
+              {selectedDescription}
             </p>
 
             {/* small gray line */}
@@ -52,7 +54,7 @@ const OpinionNews = () => {
             {/* author */}
             <p className="text-[18px] text-[#111827]">
               <span className="font-semibold">লেখা:</span>{" "}
-              <span className="text-[#6b7280]">{featuredNews.author}</span>
+              <span className="text-[#6b7280]">{selectedNews.author}</span>
             </p>
           </article>
 
@@ -61,9 +63,19 @@ const OpinionNews = () => {
             {sideNews.map((item, index) => (
               <article
                 key={item.id}
-            
+                role="button"
+                tabIndex={0}
+                onClick={() => setSelectedNews(item)}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    setSelectedNews(item);
+                  }
+                }}
                 className={`flex gap-6 py-6 ${
                   index !== sideNews.length - 1 ? "border-b border-black/15" : ""
+                } cursor-pointer transition-colors hover:bg-gray-50 ${
+                  selectedNews.id === item.id ? "bg-gray-50" : ""
                 }`}
               >
                 {/* author image / fallback icon */}

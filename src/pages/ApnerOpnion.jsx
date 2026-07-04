@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router";
 import { FiChevronRight, FiEdit3 } from "react-icons/fi";
 import { opinionData } from "../data/opinionaData";
 
 const ApnerOpnion = () => {
-  const featuredNews = opinionData[0];
+  const [selectedNews, setSelectedNews] = useState(opinionData[0]);
   const sideNews = opinionData
+  const selectedDescription =
+    selectedNews.description || opinionData[0]?.description || selectedNews.title;
 
   const renderTitle = (title, limit = 7, className = "") => {
     const words = title.split(" ");
@@ -37,13 +39,13 @@ const ApnerOpnion = () => {
             <div className="mb-8">
               <div className="inline-block bg-[#001b5e] px-4 py-2 text-[20px] font-bold leading-tight text-[#ffcc00]">
                 মতামত <span className="text-[#ffcc00]">•</span>{" "}
-                <span className="text-white">{featuredNews.title}</span>
+                <span className="text-white">{selectedNews.title}</span>
               </div>
             </div>
 
             {/* description */}
             <p className="mb-14 max-w-[290px] text-[18px] leading-10 text-[#4b5563]">
-              {featuredNews.description}
+              {selectedDescription}
             </p>
 
             {/* small gray line */}
@@ -52,17 +54,28 @@ const ApnerOpnion = () => {
             {/* author */}
             <p className="text-[18px] text-[#111827]">
               <span className="font-semibold">লেখা:</span>{" "}
-              <span className="text-[#6b7280]">{featuredNews.author}</span>
+              <span className="text-[#6b7280]">{selectedNews.author}</span>
             </p>
           </article>
 
           {/* ================= RIGHT LIST ================= */}
-          <div className="flex flex-col max-h-[100vh] overflow-y-scroll cursor-all-scroll">
+          <div className="flex flex-col max-h-[100vh] overflow-y-scroll ">
             {sideNews.map((item, index) => (
               <article
                 key={item.id}
+                role="button"
+                tabIndex={0}
+                onClick={() => setSelectedNews(item)}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    setSelectedNews(item);
+                  }
+                }}
                 className={`flex gap-6 py-6  ${
                   index !== sideNews.length - 1 ? "border-b border-black/15" : ""
+                } cursor-pointer transition-colors hover:bg-gray-50 ${
+                  selectedNews.id === item.id ? "bg-gray-50" : ""
                 }`}
               >
                 {/* author image / fallback icon */}
@@ -119,10 +132,11 @@ const ApnerOpnion = () => {
           
           <form className="flex flex-col gap-4"
            action="">
-            <input type="text" placeholder="Your name" className="border border-gray-300 p-2 rounded-[0.5rem]"/>
-            <input type="text" placeholder="Your Role" className="border border-gray-300 p-2 rounded-[0.5rem]"/>
+            <input type="text" placeholder="আপনার নাম" className="border border-gray-300 p-2 py-4 rounded-[0.5rem]"/>
+            <input type="text" placeholder="আপনার ভুমিকা " className="border border-gray-300 p-2 py-4 rounded-[0.5rem]"/>
+            <input type="text" placeholder="মতামতের মূল প্রেক্ষাপট" className="border border-gray-300 p-2 py-4 rounded-[0.5rem]"/>
             <textarea className="border border-gray-300 p-2 rounded-[0.5rem] min-h-[200px]"
-            name="text" placeholder="Enter Your Opnion details..." id="">
+            name="text" placeholder="আপনার পুরো মতামত এর ব্যাখ্যা..." id="">
 
             </textarea>
              <button className="bg-[#07186b] w-[200px] p-3 text-white rounded-[0.7rem]" 

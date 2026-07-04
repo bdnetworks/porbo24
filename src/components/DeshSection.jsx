@@ -200,12 +200,21 @@ const DeshSection = () => {
               <Link
                 key={news.id}
                 to={`/news/news/${news.id}`}
-                className={`flex flex-col gap-4 py-4 md:flex-row md:items-start ${
+                className={`flex flex-col gap-4 py-4 md:flex-row-reverse md:items-start ${
                   index !== middleNews.length - 1
                     ? "border-b border-black/10"
                     : ""
                 }`}
               >
+
+                  {/* image */}
+                <div className="w-full overflow-hidden md:h-[170px] md:w-[220px] md:shrink-0">
+                  <img
+                    src={news.img}
+                    alt={news.title}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
                 {/* text */}
                 <div className="flex-1">
                   <h3 className="mb-3 line-clamp-3  text-[19px] font-bold leading-[1.45] text-[#111827]">
@@ -226,14 +235,7 @@ const DeshSection = () => {
                   </span>
                 </div>
 
-                {/* image */}
-                <div className="w-full overflow-hidden md:h-[170px] md:w-[220px] md:shrink-0">
-                  <img
-                    src={news.img}
-                    alt={news.title}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
+              
               </Link>
             ))}
           </div>
@@ -262,7 +264,7 @@ const DeshSection = () => {
                   </span>
                 </div>
 
-                <div className="h-[170px] w-[220px] max-sm:w-[120px] shrink-0 overflow-hidden">
+                <div className="h-[170px] max-sm:h-[120px] w-[220px] max-sm:w-[120px] shrink-0 overflow-hidden">
                   <img
                     src={news.img}
                     alt={news.title}
