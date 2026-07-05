@@ -108,13 +108,13 @@ const OpinionCard = ({ news }) => {
   return (
     <Link to={`/news/news/${news.id}`} className="block border-b border-black/10 pb-5">
       <div className="flex items-start gap-4 ">
-        <div className="min-w-0 flex">
+        <div className="min-w-0 flex ">
           
 
           <NewsTitle
             title={news.title}
             wordLimit={10}
-            className="text-[19px] font-bold leading-[1.45] text-[#1f1f1f]"
+            className="text-[19px] font-bold leading-[1.45] text-[#1f1f1f] "
             
           />
             {news.img && (
@@ -194,11 +194,11 @@ const MediumCard = ({ news }) => {
   return (
     <Link to={`/news/news/${news.id}`} className="block border-b border-black/10 pb-4 ">
       <div className="flex items-start gap-4">
-        <div className="min-w-0 flex">
+        <div className="min-w-0 flex gap-[1px]">
           <NewsTitle
             title={news.title}
             wordLimit={8}
-            className="text-[19px] font-bold leading-[1.45] text-[#1f1f1f]"
+            className="text-[19px] font-bold leading-[1.45] text-[#1f1f1f] line-clamp-4"
           />
             {news.img && (
           <div className="h-[85px] w-[110px] shrink-0 overflow-hidden max-xl:ml-2">
