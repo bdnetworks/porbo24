@@ -181,12 +181,14 @@ article img {
 article, a:hover img{
    transform: scale(1.05);
   filter: saturate(1.12);
+  transition: all 0.5s ease;
  
 }
 article img:hover {
   transform: scale(1.05);
   filter: saturate(1.12);
     cursor: pointer;
+      transition: all 0.5s ease;
 
 }
 
