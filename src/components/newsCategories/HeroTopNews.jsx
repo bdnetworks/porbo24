@@ -67,7 +67,7 @@ const HeroTopNews = () => {
             />
           </article>
 
-          {/* ================= RIGHT: 4 SMALL NEWS ================= */}
+          {/* ================= RIGHT: 4 SMALL video NEWS ================= */}
           <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
             {sideNews.map((news, index) => {
               const { shortTitle, isLong } = getTruncatedTitle(news.title);
@@ -76,12 +76,12 @@ const HeroTopNews = () => {
                 <Link
                   key={news.id}
                   to={`/news/video/${news.id}`}
-                  className={`flex items-start justify-between gap-4 ${
+                  className={`block ${
                     index < 2 ? "border-b border-black/10 pb-6 dark:border-slate-700" : ""
                   }`}
                 >
                   {/* left text */}
-                  <div className="flex-1">
+                  <div className="hidden">
                     
                     <h3 className="mb-2 text-[17px] font-bold leading-[1.45] text-[#111827] dark:text-slate-100">
                       {shortTitle}
@@ -96,13 +96,14 @@ const HeroTopNews = () => {
                   </div>
 
                   {/* right image */}
-                  <div className="relative h-[96px] w-[108px] shrink-0 overflow-hidden rounded-md  cursor-pointer">
+                  <div className="relative h-[150px] w-full overflow-hidden rounded-md cursor-pointer sm:h-[135px]">
                     <img
                       src={news.img}
                       alt={news.title}
                       className="h-full w-full object-cover cursor-pointer"
                     />
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 via-45% to-transparent" />
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/10">
                       <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-red-600 shadow-md">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -113,6 +114,15 @@ const HeroTopNews = () => {
                           <path d="M8 5v14l11-7z" />
                         </svg>
                       </div>
+                    </div>
+                    <div className="absolute inset-x-0 bottom-0 px-3 pb-3 pt-8">
+                      <h3 className="line-clamp-2 text-[16px] font-bold leading-[1.45] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                        {shortTitle}
+                        {isLong && "..."}
+                      </h3>
+                      <span className="hidden">
+                        {news.publishedAt || "à§¨ à¦˜à¦£à§à¦Ÿà¦¾ à¦†à¦—à§‡"}
+                      </span>
                     </div>
                   </div>
                 </Link>

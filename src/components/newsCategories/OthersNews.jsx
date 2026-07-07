@@ -74,7 +74,7 @@ const OthersNews = () => {
                     <img
                       src={firstNews.img}
                       alt={firstNews.title}
-                      className="h-[180px] w-full object-cover transition duration-300 hover:scale-[1.03]"
+                      className="h-[200px] sm:h-[250px] lg:h-[200px] w-full object-cover transition duration-300 hover:scale-[1.03]"
                     />
                   </div>
 

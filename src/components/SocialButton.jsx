@@ -5,7 +5,7 @@ const SocialButton = () => {
   const [showPopup, setShowPopup] = useState(true);
 
   return (
-    <div className="fixed left-0 top-1/2 z-50 flex -translate-y-1/2 flex-col gap-3">
+    <div className="fixed left-0 top-1/2 z-50 flex -translate-y-1/2 flex-col gap-2">
       {/* YouTube */}
       <a
         href="https://youtube.com"
@@ -35,7 +35,7 @@ const SocialButton = () => {
       </a>
 
       {showPopup && (
-        <div className="relative ml-2 w-[180px] rounded-r-md border border-black/10 bg-white p-3 text-[#111827] shadow-xl">
+        <div className="absolute top-40 ml-2 sta  w-[220px]  rounded-r-md border border-black/10 bg-white p-3 text-[#111827] shadow-xl">
           <button
             type="button"
             aria-label="Hide popup"
@@ -46,12 +46,18 @@ const SocialButton = () => {
           </button>
 
           <p className="text-xs font-bold text-[#07186b]">বিজ্ঞাপন</p>
-          <p className="mt-1 text-sm font-semibold leading-5">
-            আপনার কনটেন্ট এখানে দেখান
-          </p>
-          <p className="mt-1 text-xs leading-4 text-gray-500">
-            ক্লায়েন্টের অ্যাড বা ছোট বার্তা বসানো যাবে।
-          </p>
+         {/* ইউটিউব ভিডিও এমবেড */}
+  <div className="w-full aspect-video rounded overflow-hidden">
+   <iframe
+    className="w-full h-full"
+    // 'watch?v=wu-K5gNHO2Q' এর পরিবর্তে 'embed/wu-K5gNHO2Q' ব্যবহার করুন
+    src="https://www.youtube.com/embed/wu-K5gNHO2Q" 
+    title="China accused of attempted interference in Aussie mine | 9 News Australia"
+    frameBorder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowFullScreen
+  ></iframe>
+  </div>
         </div>
       )}
     </div>

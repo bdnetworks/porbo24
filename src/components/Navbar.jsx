@@ -37,12 +37,31 @@ export default function Navbar() {
   });
 
   useEffect(() => {
+    let animationFrameId = null;
+
     const handleScroll = () => {
-      setIsSticky(window.scrollY > 100);
+      if (animationFrameId) return;
+
+      animationFrameId = window.requestAnimationFrame(() => {
+        const scrollTop = window.scrollY;
+
+        setIsSticky((current) => {
+          if (!current && scrollTop > 120) return true;
+          if (current && scrollTop < 70) return false;
+          return current;
+        });
+
+        animationFrameId = null;
+      });
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (animationFrameId) window.cancelAnimationFrame(animationFrameId);
+    };
   }, []);
 
   useEffect(() => {
@@ -109,18 +128,19 @@ export default function Navbar() {
 
         {/* ========== 2nd Line: Logo + Search + Hamburger ========== */}
         <div
-          className={`border-b border-gray-200 bg-white transition-all duration-300 md:overflow-hidden ${
+          className={`grid border-b border-gray-200 bg-white transition-[grid-template-rows,opacity] duration-300 ease-out md:overflow-hidden ${
             isSticky
-              ? "max-h-[150px] py-2 max-sm:py-[0.2rem] opacity-100 md:max-h-0 md:py-0 md:opacity-0"
-              : "max-h-[100px] py-2 max-sm:py-[0.2rem] opacity-100"
+              ? "grid-rows-[1fr] opacity-100 md:grid-rows-[0fr] md:opacity-0"
+              : "grid-rows-[1fr] opacity-100"
           }`}
         >
-          <div className="relative mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-4 max-sm:px-2">
+          <div className="min-h-0 overflow-hidden">
+          <div className="relative mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-4 py-2 max-sm:px-2 max-sm:py-[0.2rem]">
             <Link to="/" className="shrink-0 max-sm:-ml-1" aria-label="Go to home">
               <img
                 src="/Logo.png"
                 alt="porbo25-logo"
-                className="w-[5rem] max-sm:w-[4rem]"
+                className="w-[5.5rem] max-sm:w-[4rem] bg-[#fff] p-[0.2rem] rounded-[0.5rem]"
               />
             </Link>
             <div className="hidden md:block">
@@ -189,6 +209,7 @@ export default function Navbar() {
               </div>
             )}
           </div>
+          </div>
         </div>
 
         {/* ========== 3rd Line: Category Menu (large screens) ========== */}
@@ -199,7 +220,7 @@ export default function Navbar() {
                 <button
                   type="button"
                   onClick={() => setIsMenuOpen(true)}
-                  className="flex h-10 w-10 items-center justify-center rounded bg-white text-[#07186b] hover:bg-gray-200 transition-colors"
+                  className="flex h-10 w-10 items-center justify-center rounded bg-white text-[#1538e7] hover:bg-gray-200 transition-colors"
                 >
                   <FaBars />
                 </button>
@@ -227,7 +248,7 @@ export default function Navbar() {
                     className={({ isActive }) =>
                       `flex-shrink-0 border-r border-white/40 px-3 py-3 text-[16px] font-medium first:pl-2 last:border-r-0 transition-colors ${
                         isActive
-                          ? "text-red-400 font-bold bg-[#051252] border-b-2 border-red-400" // একটিভ হলে হলুদ রঙ এবং হালকা ব্যাকগ্রাউন্ড হবে
+                          ? "text-red-500 font-bold bg-[#051252] border-b-2 border-red-400" // একটিভ হলে হলুদ রঙ এবং হালকা ব্যাকগ্রাউন্ড হবে
                           : "text-white hover:text-gray-200"
                       }`
                     }

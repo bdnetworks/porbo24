@@ -5,6 +5,7 @@ import SocialButton from './components/SocialButton'
 import TopGobutton from './components/TopGobutton'
 import SubscribeBtn from './components/SubscribeBtn'
 import ScrollManager from './ScrollManager'
+import BreakingNews from './components/BreakingNews'
 
 const Layout = ({ children }) => {
   return (
@@ -12,6 +13,7 @@ const Layout = ({ children }) => {
       <ScrollManager/>
       {/* Header */}
       <Navbar />
+      <BreakingNews/>
       
       <SocialButton/>
       <TopGobutton/>

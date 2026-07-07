@@ -32,7 +32,7 @@ const ForYou = () => {
             <Link
               key={news.id}
               to={`/news/entertainment/${news.id}`}
-              className={`block bg-white pb-5 md:pb-0 md:pr-5 ${
+              className={`block  pl-2 pb-5 md:pb-0 md:pr-5 ${
                 index !== apnerJonnoNews.length - 1
                   ? "border-b border-black/10 md:border-b-0 md:border-r"
                   : ""
@@ -43,7 +43,7 @@ const ForYou = () => {
                 <img
                   src={news.img}
                   alt={news.title}
-                  className="h-[250px]  w-full object-cover transition duration-300 hover:scale-[1.03]"
+                  className="h-[200px] sm:h-[250px] lg:h-[200px]  w-full object-cover transition duration-300 hover:scale-[1.03]"
                 />
               </div>
 

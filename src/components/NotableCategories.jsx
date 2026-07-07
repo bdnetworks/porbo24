@@ -67,7 +67,7 @@ const NotableCategories = () => {
         </div>
 
         {/* Right arrows */}
-        <div className="flex shrink-0 items-center max-sm:gap-[0.5px]">
+        <div className="flex shrink-0 items-center max-sm:gap-[0.5px] max-sm:hidden">
           <button
             onClick={scrollLeft}
             className="flex h-9 w-9 max-sm:w-6 items-center justify-center rounded-full border border-black/10 bg-white text-[#111] transition hover:bg-gray-100"

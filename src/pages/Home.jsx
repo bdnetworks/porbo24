@@ -15,7 +15,7 @@ import PhotoNews from '../components/PhotoNews'
 const Home = () => {
   return (
     <div className='max-w-[1280px] min-h-[100vh] mx-auto px-4 py-6'>
-      <BreakingNews/>
+     
      <Hero/>
      <VideoNews/>
      <NotableCategories/>

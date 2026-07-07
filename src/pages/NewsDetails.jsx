@@ -69,7 +69,7 @@ const NewsDetails = () => {
     <div className="max-w-[1280px] mx-auto px-4 py-8">
 
       {/* Breadcrumb */}
-      <div className="mb-8 text-sm">
+      <div className="mb-8 text-md">
         <Link to="/" className="text-blue-600">
           Home
         </Link>

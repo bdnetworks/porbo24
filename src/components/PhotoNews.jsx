@@ -65,7 +65,7 @@ export default function PhotoNews() {
         {sliderImages.length > 0 && (
           <Link
             to={`/photo-news/${mainSliderNews.id}`}
-            className="lg:col-span-2 relative group overflow-hidden rounded-xl bg-black h-[480px] shadow-lg"
+            className="lg:col-span-2 relative group overflow-hidden rounded-xl bg-black h-[350px] md:h-[480px]  shadow-lg"
           >
             
             {/* স্লাইডার ইমেজ */}
@@ -126,7 +126,7 @@ export default function PhotoNews() {
               <Link
                 key={news.id} 
                 to={`/photo-news/${news.id}`}
-                className="relative flex flex-row gap-4 p-2.5   border-b-[1px] border-gray-300 hover:border-gray-300 transition-all cursor-pointer h-[108px] overflow-hidden group"
+                className="relative flex flex-row gap-4 p-2.5   border-b-[1px] border-gray-300 hover:border-gray-300 transition-all cursor-pointer h-[108px]  overflow-hidden group"
               >
                 {/* ইমেজ সেকশন (Left Side inside small div) */}
                 <div className="relative w-1/3 h-full flex-shrink-0 rounded-lg overflow-hidden bg-gray-100">

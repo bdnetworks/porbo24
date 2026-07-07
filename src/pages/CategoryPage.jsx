@@ -43,14 +43,14 @@ const CategoryPage = () => {
   return (
     <div className="mx-auto max-w-[1280px] px-4 py-8 pt-4">
       {/* Breadcrumb */}
-      <div className="mb-8 flex justify-start text-sm text-gray-500 font-bold">
+      <div className="mb-8 flex justify-start text-md text-gray-500 font-bold">
         <Link to="/" className="hover:text-[#07186b] font-bold">
           Home
         </Link>
 
         <span className="mx-2">{">"}</span>
 
-        <span className="font-bold  capitalize text-[#07186b]">
+        <span className="font-bold  capitalize text-[#2740c0]">
           {category}
         </span>
       </div>
@@ -63,8 +63,8 @@ const CategoryPage = () => {
         const isExpanded = expandedGroups[subCategory];
 
         const heroNews = firstSix[0];
-        const sideNews = firstSix[1];
-        const bottomNews = firstSix.slice(2, 6);
+        const sideNews = firstSix.slice(1, 3);
+        const bottomNews = firstSix.slice(3, 6);
 
         return (
           <section key={subCategory} className="mb-16">
@@ -81,11 +81,11 @@ const CategoryPage = () => {
 
               <Link 
               to={`/news/news/${heroNews.id}`}
-              className="group relative overflow-hidden border-b border-black/10 pb-5 lg:border-b-0 lg:border-r lg:pb-0 lg:pr-6">
+              className="group relative overflow-hidden border-b border-black/10  lg:border-b-0 lg:border-r lg:pb-0 ">
                 <img
                   src={heroNews.img}
                   alt={heroNews.title}
-                  className="h-[450px] w-full object-cover"
+                  className="h-full w-full object-cover"
                 />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
@@ -103,34 +103,39 @@ const CategoryPage = () => {
 
               {/* Side News */}
 
-              <Link 
-              to={`/news/news/${sideNews.id}`}
-              className="overflow-hidden border-b border-black/10 pb-5">
-                <img
-                  src={sideNews.img}
-                  alt={sideNews.title}
-                  className="h-[260px] w-full object-cover"
-                />
+              <div className="grid gap-6 sm:grid-cols-2">
+                {sideNews.map((news) => (
+                  <Link 
+                  key={news.id}
+                  to={`/news/news/${news.id}`}
+                  className="overflow-hidden border-b border-black/10 pb-5">
+                    <img
+                      src={news.img}
+                      alt={news.title}
+                      className="h-[260px] w-full object-cover"
+                    />
 
-                <div className="p-5">
-                  <p className="mb-2 text-sm text-gray-500">
-                    {new Date().toLocaleDateString()}
-                  </p>
+                    <div className="p-5">
+                      <p className="mb-2 text-sm text-gray-500">
+                        {new Date().toLocaleDateString()}
+                      </p>
 
-                  <h3 className="line-clamp-2 text-xl font-bold hover:text-[#07186b]">
-                    {sideNews.title}
-                  </h3>
+                      <h3 className="line-clamp-2 text-xl font-bold hover:text-[#07186b]">
+                        {news.title}
+                      </h3>
 
-                  <p className="mt-3 line-clamp-4 text-gray-600">
-                    {sideNews.description}
-                  </p>
-                </div>
-              </Link>
+                      <p className="mt-3 line-clamp-3 text-gray-600">
+                        {news.description}
+                      </p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </div>
 
             {/* Bottom Row */}
 
-            <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {bottomNews.map((news) => (
                 <Link
                   key={news.id}
@@ -163,7 +168,7 @@ const CategoryPage = () => {
             {extraNews.length > 0 && (
               <div className="mt-8">
                 {isExpanded && (
-                  <div className="mb-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                  <div className="mb-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {extraNews.map((news) => (
                       <Link
                        key={news.id}
