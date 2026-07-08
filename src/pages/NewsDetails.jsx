@@ -276,10 +276,10 @@ const NewsDetails = () => {
             href="https://news.google.com/publications/CAAqBwgKMOfGlwswmfCuAw?hl=bn&gl=BD&ceid=BD%3Abn"
             target="_blank"
             rel="noreferrer"
-            className="mt-8 inline-flex items-center gap-3  border-b border-gray-200 px-4 py-3  font-semibold text-[#07186b]  transition hover:border-[#07186b] hover:text-red-600"
+            className="mt-8 inline-flex items-center gap-3  border-b border-gray-200 px-4 py-3  font-semibold text-[#1c3de2]  transition hover:border-[#07186b] hover:text-red-600"
           >
             <FaRegNewspaper className="text-[2rem]"/>
-            পরব২৪ খবর পেতে গুগল নিউজ চ্যানেল ফলো করুন
+            পর্ব২৪ খবর পেতে গুগল নিউজ চ্যানেল ফলো করুন
           </a>
 
           <div className="mt-10 border-t border-gray-200 pt-6">
