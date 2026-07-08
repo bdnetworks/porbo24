@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useParams } from "react-router";
 import {
   FaFacebookF,
   FaTwitter,
   FaInstagram,
   FaShareAlt,
+  FaBookmark,
+  FaTimes,
+  FaRegNewspaper,
+  FaRegClock,
 } from "react-icons/fa";
 
 import { newsData } from "../data/newsData";
@@ -17,6 +21,7 @@ import ImgdownloadBtn from "../components/ImgdownloadBtn";
 const NewsDetails = () => {
   const { source, id } = useParams();
   const targetId = Number(id);
+  const [showImageAd, setShowImageAd] = useState(true);
 
   const getNewsBySource = (currentSource, currentId) => {
     switch (currentSource) {
@@ -37,22 +42,27 @@ const NewsDetails = () => {
   };
 
   const news = getNewsBySource(source || "news", targetId);
-  const getRecentNews = (currentSource, currentId) => {
+
+  const getNewsListBySource = (currentSource) => {
     switch (currentSource) {
       case "video":
-        return videoNewsData.filter((item) => item.id !== currentId).slice(0, 10);
+        return videoNewsData;
       case "entertainment":
-        return entertainment.filter((item) => item.id !== currentId).slice(0, 10);
+        return entertainment;
       case "opinion":
-        return opinionData.filter((item) => item.id !== currentId).slice(0, 10);
-      case "others": {
-        const othersList = Object.values(othersNewsData).flat();
-        return othersList.filter((item) => item.id !== currentId).slice(0, 10);
-      }
+        return opinionData;
+      case "others":
+        return Object.values(othersNewsData).flat();
       case "news":
       default:
-        return newsData.filter((item) => item.id !== currentId).slice(0, 10);
+        return newsData;
     }
+  };
+
+  const getRecentNews = (currentSource, currentId) => {
+    return getNewsListBySource(currentSource)
+      .filter((item) => item.id !== currentId)
+      .slice(0, 10);
   };
 
   const recentNews = getRecentNews(source || "news", targetId);
@@ -64,6 +74,53 @@ const NewsDetails = () => {
       </div>
     );
   }
+
+  const currentSource = source || "news";
+  const currentSubCategory = news.subCategory || news.category;
+  const categoryLabels = {
+    desh: "দেশ",
+    sports: "খেলাধুলা",
+    international: "আন্তর্জাতিক",
+    entertainment: "বিনোদন",
+    technology: "প্রযুক্তি",
+    economy: "অর্থনীতি",
+    video: "ভিডিও",
+    opinion: "মতামত",
+  };
+  const subCategoryLabels = {
+    football: "ফুটবল",
+    criket: "ক্রিকেট",
+    cricket: "ক্রিকেট",
+    kabadi: "কাবাডি",
+    hokkey: "হকি",
+    rajniti: "রাজনীতি",
+    ancholik: "আঞ্চলিক",
+    ancolik: "আঞ্চলিক",
+    onnano: "অন্যান্য",
+    "iran-america": "ইরান-আমেরিকা",
+    europe: "ইউরোপ",
+    robot: "রোবট",
+  };
+  const readableSubCategory =
+    subCategoryLabels[currentSubCategory] ||
+    categoryLabels[currentSubCategory] ||
+    currentSubCategory;
+  const publishedTime = news.publishedAt || "1:10 pm, july/23/2026";
+  const imageCaption =
+    news.caption || "ছবি: পরব২৪";
+  const tagItems = news.tags || [
+    "আর্জেন্টিনা ফুটবল দল",
+    "মেসি",
+    "ফিফা বিশ্বকাপ ২০২৬",
+    "বিশ্বকাপ ফুটবল ২০২৬",
+  ];
+  const relatedNews = getNewsListBySource(currentSource)
+    .filter(
+      (item) =>
+        item.id !== news.id &&
+        (item.subCategory || item.category) === currentSubCategory
+    )
+    .slice(0, 4);
 
   return (
     <div className="max-w-[1280px] mx-auto px-4 py-8">
@@ -98,50 +155,75 @@ const NewsDetails = () => {
 
           {/* Writer */}
 
-          <div className="flex justify-between items-center border-b border-gray-300 pb-6 mb-8 flex-wrap gap-5">
+          <div className="flex flex-wrap items-center justify-between gap-5 border-y border-gray-200 py-5 mb-8">
 
             <div className="flex items-center gap-4">
 
               <img
                 src="https://i.pravatar.cc/100"
-                className="w-14 h-14 rounded-full"
+                alt="Mahbub Islam"
+                className="h-14 w-14 rounded-full object-cover ring-2 ring-gray-100"
               />
 
               <div>
-                <h3 className="font-semibold">
+                <h3 className="text-base font-bold text-gray-700">
                   Mahbub Islam
                 </h3>
 
-                <p className="text-sm text-gray-500">
+                <p className="mt-0.5 text-sm text-gray-500">
                   Staff Reporter
+                </p>
+
+                <p className="mt-2 inline-flex items-center gap-2 rounded-full bg-gray-100 px-1 py-1 text-xs font-medium text-gray-600">
+                  <FaRegClock className="text-gray-400" />
+                  <span>{publishedTime}</span>
                 </p>
               </div>
 
             </div>
 
-            <div className="text-right">
+            <div className="flex items-center gap-2">
 
-              
+              <button
+                type="button"
+                aria-label="Share on Facebook"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white text-[#1877f2] shadow-sm transition hover:-translate-y-0.5 hover:border-[#1877f2] hover:bg-[#1877f2] hover:text-white"
+              >
+                <FaFacebookF />
+              </button>
 
-              <div className="flex gap-3 mt-3 justify-end text-lg">
+              <button
+                type="button"
+                aria-label="Share on Twitter"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white text-[#1da1f2] shadow-sm transition hover:-translate-y-0.5 hover:border-[#1da1f2] hover:bg-[#1da1f2] hover:text-white"
+              >
+                <FaTwitter />
+              </button>
 
-                <span className="border px-6 py-2 shadow-sm border-white  rounded-[0.8rem] cursor-pointer">
-                    <FaFacebookF className="cursor-pointer hover:text-blue-600"/>
-                </span>
+              <button
+                type="button"
+                aria-label="Share on Instagram"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white text-[#dd2a7b] shadow-sm transition hover:-translate-y-0.5 hover:border-[#dd2a7b] hover:bg-[#dd2a7b] hover:text-white"
+              >
+                <FaInstagram />
+              </button>
 
-                <span className="border px-6 py-2 shadow-sm border-white rounded-[0.8rem] cursor-pointer">
-                    <FaTwitter className="cursor-pointer hover:text-sky-500"/>
-                </span>
-                
-                 <span className="border px-6 py-2 shadow-sm border-white rounded-[0.8rem] cursor-pointer">
-                <FaInstagram className="cursor-pointer hover:text-pink-500"/>
-                  </span>
+              <button
+                type="button"
+                aria-label="Share news"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition hover:-translate-y-0.5 hover:border-[#07186b] hover:bg-[#07186b] hover:text-white"
+              >
+                <FaShareAlt />
+              </button>
 
-                 <span className="border px-6 py-2 shadow-sm border-white rounded-[0.8rem] cursor-pointer">
-                     <FaShareAlt className="cursor-pointer"/>
-                </span>
-
-              </div>
+              <button
+                type="button"
+                aria-label="Save news"
+                className="ml-1 flex h-10 items-center gap-2 rounded-full border border-red-100 bg-red-50 px-4 text-sm font-semibold text-red-600 shadow-sm transition hover:-translate-y-0.5 hover:bg-red-600 hover:text-white"
+              >
+                <FaBookmark />
+                <span>সেভ</span>
+              </button>
 
             </div>
 
@@ -152,8 +234,31 @@ const NewsDetails = () => {
           <img
             src={news.img}
             alt={news.title}
-            className="w-full aspect-[1900/1000] object-cover mb-8"
+            className="w-full aspect-[1900/1000] object-cover"
           />
+
+          {showImageAd && (
+            <div className="relative h-[100px] py-1 w-full overflow-hidden bg-gray-100">
+              <img
+                src="https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=1400&q=80"
+                alt="Advertisement"
+                className="h-full w-full object-cover"
+              />
+              <button
+                type="button"
+                onClick={() => setShowImageAd(false)}
+                className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-black/70 text-white transition hover:bg-black"
+                aria-label="Close advertisement"
+              >
+                <FaTimes />
+              </button>
+            </div>
+          )}
+
+          <p className="border-b border-gray-300 pb-4 pt-3 text-sm text-gray-500">
+            {imageCaption}
+          </p>
+
           <div className="flex justify-center">
             <ImgdownloadBtn news={news} />
           </div>
@@ -165,6 +270,34 @@ const NewsDetails = () => {
 
             
 
+          </div>
+
+          <a
+            href="https://news.google.com/publications/CAAqBwgKMOfGlwswmfCuAw?hl=bn&gl=BD&ceid=BD%3Abn"
+            target="_blank"
+            rel="noreferrer"
+            className="mt-8 inline-flex items-center gap-3  border-b border-gray-200 px-4 py-3  font-semibold text-[#07186b]  transition hover:border-[#07186b] hover:text-red-600"
+          >
+            <FaRegNewspaper className="text-[2rem]"/>
+            পরব২৪ খবর পেতে গুগল নিউজ চ্যানেল ফলো করুন
+          </a>
+
+          <div className="mt-10 border-t border-gray-200 pt-6">
+            <h2 className="text-xl font-bold">
+              {readableSubCategory} থেকে আরও পড়ুন
+            </h2>
+
+            <div className="mt-5 flex flex-wrap gap-3">
+              {tagItems.map((tag) => (
+                <Link
+                  key={tag}
+                  to={`/topic/${encodeURIComponent(tag)}`}
+                  className="rounded-full border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 transition hover:border-red-500 hover:text-red-600"
+                >
+                  {tag}
+                </Link>
+              ))}
+            </div>
           </div>
 
           {/* Comment */}
@@ -193,6 +326,33 @@ const NewsDetails = () => {
             
             </div>
           </div>
+
+          {relatedNews.length > 0 && (
+            <section className="mt-16">
+              <h2 className="mb-6 text-2xl font-bold">
+                {readableSubCategory} এর আরও খবর
+              </h2>
+
+              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                {relatedNews.map((item) => (
+                  <Link
+                    key={item.id}
+                    to={`/news/${currentSource}/${item.id}`}
+                    className="group block border-b border-gray-200 pb-4"
+                  >
+                    <img
+                      src={item.img}
+                      alt={item.title}
+                      className="mb-3 aspect-[4/3] w-full object-cover"
+                    />
+                    <h3 className="line-clamp-3 text-base font-semibold leading-6 ">
+                      {item.title}
+                    </h3>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )}
 
         </main>
 
