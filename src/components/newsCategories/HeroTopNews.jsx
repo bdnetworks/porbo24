@@ -85,7 +85,7 @@ const HeroTopNews = () => {
                       </span>
                     </div>
                   </div>
-
+{/* d */}
                   {/* image */}
                   <div className="relative order-1 h-[130px] w-full overflow-hidden rounded-md cursor-pointer sm:h-[135px]">
                     <img
