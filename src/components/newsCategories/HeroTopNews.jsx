@@ -43,7 +43,7 @@ const HeroTopNews = () => {
           {/* ================= LEFT: BIG IMAGE NEWS ================= */}
           <Link
             to={`/news/news/${leadNews.id}`}
-            className="relative h-[350px] overflow-hidden border-b border-black/10 dark:border-slate-700 lg:h-[420px] lg:border-b-0"
+            className="relative h-[350px] overflow-hidden border-b border-black/10 dark:border-slate-700 lg:h-[440px] lg:border-b-0"
           >
             <img src={leadNews.img} alt={leadNews.title} className="h-full w-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent" />
@@ -80,7 +80,7 @@ const HeroTopNews = () => {
                     </h3>
 
                     <div>
-                      <span className="text-[15px] text-[#6b7280] dark:text-slate-400">
+                      <span className="text-sm text-[#6b7280] dark:text-slate-400">
                         {news.publishedAt || "২ ঘণ্টা আগে"}
                       </span>
                     </div>
