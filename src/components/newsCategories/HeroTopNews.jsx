@@ -11,7 +11,7 @@ const HeroTopNews = () => {
   if (sportsNews.length < 5) return null;
 
   const leadNews = sportsNews[0];
-  const sideNews = videoNewsData.slice(0, 4);
+  const sideNews = sportsNews.slice(1, 5);
 
   // কত word পর্যন্ত title দেখাবে
   const TITLE_WORD_LIMIT = 6;
@@ -39,36 +39,27 @@ const HeroTopNews = () => {
 
 
       <div className="mx-auto px-4 py-5">
-        <div className="grid grid-cols-1 gap-6  xl:grid-cols-[320px_1fr_520px]">
-          {/* ================= LEFT: BIG TEXT NEWS ================= */}
+        <div className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1fr)_520px]">
+          {/* ================= LEFT: BIG IMAGE NEWS ================= */}
           <Link
             to={`/news/news/${leadNews.id}`}
-            className="flex flex-col justify-between border-b border-black/10 pb-4 dark:border-slate-700 lg:border-b-0 lg:pb-0"
+            className="relative h-[350px] overflow-hidden border-b border-black/10 dark:border-slate-700 lg:h-[420px] lg:border-b-0"
           >
-            <div>
-              <h2 className="mb-4 text-[24px] font-bold leading-[1.45] text-[#111827] dark:text-slate-100">
+            <img src={leadNews.img} alt={leadNews.title} className="h-full w-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 p-5">
+              <h2 className="text-[24px] font-bold leading-[1.45] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] lg:text-[30px]">
                 {leadNews.title}
               </h2>
-
-              <p className="mb-8 text-[16px] leading-8 text-[#4b5563] dark:text-slate-300">
-                {leadNews.description}
-              </p>
+              <span className="mt-3 block text-[15px] text-slate-200">
+                {leadNews.publishedAt || "২৫ মিনিট আগে"}
+              </span>
             </div>
-
-            <span className="text-[15px] text-[#6b7280]">২৫ মিনিট আগে</span>
           </Link>
 
-          {/* ================= MIDDLE: BIG IMAGE ================= */}
-          <article className="border-b border-black/10 pb-4 dark:border-slate-700 lg:border-b-0  lg:border-r lg:border-black/10 lg:px-6 lg:pb-0">
-            <img
-              src={leadNews.img}
-              alt={leadNews.title}
-              className="h-[250px] max-xl:h-[350px] max-md:h-[250px] w-full  object-cover"
-            />
-          </article>
 
           {/* ================= RIGHT: 4 SMALL video NEWS ================= */}
-          <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
             {sideNews.map((news, index) => {
               const { shortTitle, isLong } = getTruncatedTitle(news.title);
 
@@ -76,12 +67,12 @@ const HeroTopNews = () => {
                 <Link
                   key={news.id}
                   to={`/news/video/${news.id}`}
-                  className={`block ${
-                    index < 2 ? "border-b border-black/10 pb-6 dark:border-slate-700" : ""
+                  className={`flex flex-col ${
+                    index < 2 ? "border-b border-black/10 pb-4 dark:border-slate-700" : ""
                   }`}
                 >
-                  {/* left text */}
-                  <div className="hidden">
+                  {/* title and date below the image */}
+                  <div className="order-2 pt-3">
                     
                     <h3 className="mb-2 text-[17px] font-bold leading-[1.45] text-[#111827] dark:text-slate-100">
                       {shortTitle}
@@ -95,16 +86,15 @@ const HeroTopNews = () => {
                     </div>
                   </div>
 
-                  {/* right image */}
-                  <div className="relative h-[150px] w-full overflow-hidden rounded-md cursor-pointer sm:h-[135px]">
+                  {/* image */}
+                  <div className="relative order-1 h-[130px] w-full overflow-hidden rounded-md cursor-pointer sm:h-[135px]">
                     <img
                       src={news.img}
                       alt={news.title}
                       className="h-full w-full object-cover cursor-pointer"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 via-45% to-transparent" />
                     <div className="absolute inset-0 flex items-center justify-center bg-black/10">
-                      <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-red-600 shadow-md">
+                      {/* <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-red-600 shadow-md">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24"
@@ -113,9 +103,9 @@ const HeroTopNews = () => {
                         >
                           <path d="M8 5v14l11-7z" />
                         </svg>
-                      </div>
+                      </div> */}
                     </div>
-                    <div className="absolute inset-x-0 bottom-0 px-3 pb-3 pt-8">
+                    <div className="hidden absolute inset-x-0 bottom-0 px-3 pb-3 pt-8">
                       <h3 className="line-clamp-2 text-[16px] font-bold leading-[1.45] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
                         {shortTitle}
                         {isLong && "..."}
