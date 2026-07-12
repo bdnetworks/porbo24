@@ -1,7 +1,7 @@
 import React from 'react'
 import HeroTopNews from './HeroTopNews'
 import AllNewsLayout from './AllNewslayout'
-import VideoNewsMobile from './videoNewsMobile'
+import VideoNewsMobile from './VideoNewsMobile'
 
 
 const Hero = () => {
