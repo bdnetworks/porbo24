@@ -43,7 +43,7 @@ const HeroTopNews = () => {
           {/* ================= LEFT: BIG IMAGE NEWS ================= */}
           <Link
             to={`/news/news/${leadNews.id}`}
-            className="relative h-[350px] overflow-hidden border-b border-black/10 dark:border-slate-700 lg:h-[440px] lg:border-b-0"
+            className="relative h-[335px] overflow-hidden border-b border-black/10 dark:border-slate-700 lg:h-[440px] lg:border-b-0"
           >
             <img src={leadNews.img} alt={leadNews.title} className="h-full w-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent" />
@@ -59,7 +59,7 @@ const HeroTopNews = () => {
 
 
           {/* ================= RIGHT: 4 SMALL video NEWS ================= */}
-          <div className="grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-x-8 gap-y-4 grid-cols-2">
             {sideNews.map((news, index) => {
               const { shortTitle, isLong } = getTruncatedTitle(news.title);
 
