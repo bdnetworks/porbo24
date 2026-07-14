@@ -69,7 +69,7 @@ const HeroTopNews = () => {
                   </div>
 {/* d */}
                   {/* image */}
-                  <div className="relative order-1 h-[130px] w-full overflow-hidden rounded-md cursor-pointer sm:h-[135px]">
+                  <div className="relative order-1 h-[130px] w-full overflow-hidden rounded-md cursor-pointer ">
                     <img
                       src={news.img}
                       alt={news.title}
