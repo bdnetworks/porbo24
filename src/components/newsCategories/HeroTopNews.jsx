@@ -27,12 +27,12 @@ const HeroTopNews = () => {
           {/* ================= LEFT: BIG IMAGE NEWS ================= */}
           <Link
             to={`/news/news/${leadNews.id}`}
-            className="relative h-[320px] overflow-hidden border-b border-black/10 dark:border-slate-700 lg:h-[440px] lg:border-b-0"
+            className="relative h-[320px] max-sm:h-[290px] overflow-hidden border-b border-black/10 dark:border-slate-700 lg:h-[440px] lg:border-b-0"
           >
             <img src={leadNews.img} alt={leadNews.title} className="h-full w-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent" />
             <div className="absolute inset-x-0 bottom-0 p-5">
-              <h2 className="text-[24px] font-bold leading-[1.45] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] lg:text-[30px]">
+              <h2 className="text-[24px]  max-sm:text-[21px] font-bold leading-[1.45] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] lg:text-[30px]">
                 {leadNews.title}
               </h2>
               <span className="mt-3 block text-[15px] text-slate-200">
