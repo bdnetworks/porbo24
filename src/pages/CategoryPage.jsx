@@ -1,11 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useParams } from "react-router";
-import { newsData } from "../data/newsData";
+// ১. লোকাল ফাইল ইম্পোর্ট বাদ দিয়ে Context এবং useContext ইম্পোর্ট করা হলো
+import { NewsContext } from "../App"; 
 
 const CategoryPage = () => {
   const { category } = useParams();
   const [expandedGroups, setExpandedGroups] = useState({});
   const [showAllOtherNews, setShowAllOtherNews] = useState(false);
+
+  // ২. গ্লোবাল স্টেট থেকে newsData এবং loading স্টেট রিসিভ করা হলো
+  const { newsData, loading } = useContext(NewsContext);
+
+  // ৩. ডেটা যখন লোড হচ্ছে তখনকার জন্য একটি সেফটি লোডার স্ক্রিন
+  if (loading && newsData.length === 0) {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <p className="text-xl font-semibold text-gray-600">নিউজ লোড হচ্ছে...</p>
+      </div>
+    );
+  }
 
   const categoryNews = newsData.filter(
     (item) => item.category === category
@@ -65,6 +78,9 @@ const CategoryPage = () => {
         const heroNews = firstSix[0];
         const sideNews = firstSix.slice(1, 3);
         const bottomNews = firstSix.slice(3, 6);
+
+        // সেফটি চেক: যদি কোনো কারণে গ্রুপে এলিমেন্ট না থাকে
+        if (!heroNews) return null;
 
         return (
           <section key={subCategory} className="mb-16">
@@ -181,8 +197,6 @@ const CategoryPage = () => {
                         />
 
                         <div className="p-4">
-                         
-
                           <h3 className="line-clamp-2 font-bold hover:text-[#07186b]">
                             {news.title}
                           </h3>
